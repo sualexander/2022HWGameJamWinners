@@ -1,3 +1,3 @@
 # 2022HWGameJamWinners
 
-THe repository name will surely come true.
+The repository name will surely come true.
