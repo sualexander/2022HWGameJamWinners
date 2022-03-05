@@ -40,9 +40,11 @@ public class PlayerControl : LawAbider
         if (Input.GetMouseButtonDown(0))
         {
             atk.RangedAttack(1f, direction, 35f, 1f);
-        } else if (Input.GetMouseButtonDown(1))
+        }
+        else if (Input.GetMouseButtonDown(1))
         {
             atk.MeleeAttack(1f, direction, atkMask);
+        }
         if (CheckLaw())
         {
             //Debug.Log("Following the law");
