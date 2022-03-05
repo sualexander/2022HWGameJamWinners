@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class PlayerControl : MonoBehaviour
 {
-    const float speed = 10f;
+    const float speed = 30f;
     Movement move;
 
     void Start()
@@ -20,5 +20,10 @@ public class PlayerControl : MonoBehaviour
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         move.SetMovement(movement);
+    }
+
+    public Movement GetMovement()
+    {
+        return move;
     }
 }
