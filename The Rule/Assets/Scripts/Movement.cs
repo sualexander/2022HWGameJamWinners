@@ -8,6 +8,7 @@ public class Movement : MonoBehaviour
 {
     float speed;
     Vector2 movement;
+    Vector2 direction = Vector2.down;
     Rigidbody2D rb;
 
     void Start()
@@ -17,15 +18,19 @@ public class Movement : MonoBehaviour
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Vector3 translation = movement * speed * Time.deltaTime;
+        Vector3 translation = movement * speed * Time.fixedDeltaTime;
         rb.MovePosition(translation + transform.position);
     }
 
     public void SetMovement(Vector2 movement)
     {
         this.movement = movement.normalized;
+        if (movement != movement.normalized)
+        {
+            direction = movement;
+        }
     }
 
     public void SetSpeed(float speed)
@@ -36,5 +41,21 @@ public class Movement : MonoBehaviour
     public bool IsMoving()
     {
         return (movement.magnitude) > 0f;
+    }
+
+    public Vector2 GetDirection()
+    {
+        return direction;
+    }
+
+    public void SetFixedPosition(bool fix)
+    {
+        if (fix)
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+        } else
+        {
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
     }
 }
