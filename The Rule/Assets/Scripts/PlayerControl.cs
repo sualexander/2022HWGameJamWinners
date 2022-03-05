@@ -7,7 +7,7 @@ public class PlayerControl : LawAbider
 {
     const float speed = 30f;
     Movement move;
-
+    float timer = 0f;
     void Start()
     {
         move = GetComponent<Movement>();
@@ -22,11 +22,18 @@ public class PlayerControl : LawAbider
         move.SetMovement(movement);
         if (CheckLaw())
         {
-            Debug.Log("Following the law");
+            //Debug.Log("Following the law");
         }
         else
         {
-            Debug.Log("Breaking the law");
+            //Debug.Log("Breaking the law");
+        }
+        timer += Time.deltaTime;
+        if (timer > 10f)
+        {
+            timer = 0f;
+            ChangeLaw();
+            Debug.Log(GetLaw());
         }
     }
 

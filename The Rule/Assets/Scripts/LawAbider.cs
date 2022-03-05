@@ -15,4 +15,10 @@ public class LawAbider : MonoBehaviour
     {
         return currentLaw;
     }
+
+    protected static void ChangeLaw()
+    {
+        // Change the max here to be the length of Law
+        currentLaw = (Law)Random.Range(0, 3);
+    }
 }
