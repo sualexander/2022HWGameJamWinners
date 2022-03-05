@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(Movement))]
 [RequireComponent(typeof(Attack))]
-public class PlayerControl : MonoBehaviour
+public class PlayerControl : LawAbider
 {
     const float speed = 15f;
 
@@ -14,7 +14,8 @@ public class PlayerControl : MonoBehaviour
     Attack atk;
 
     int atkMask = 0;
-
+    float timer = 0f;
+    
     void Start()
     {
         atk = GetComponent<Attack>();
@@ -42,6 +43,20 @@ public class PlayerControl : MonoBehaviour
         } else if (Input.GetMouseButtonDown(1))
         {
             atk.MeleeAttack(1f, direction, atkMask);
+        if (CheckLaw())
+        {
+            //Debug.Log("Following the law");
+        }
+        else
+        {
+            //Debug.Log("Breaking the law");
+        }
+        timer += Time.deltaTime;
+        if (timer > 10f)
+        {
+            timer = 0f;
+            ChangeLaw();
+            Debug.Log(GetLaw());
         }
     }
 
@@ -49,4 +64,37 @@ public class PlayerControl : MonoBehaviour
     {
         return move;
     }
+
+    bool CheckLaw()
+    {
+        bool ret = true;
+        Law law = GetLaw();
+        switch (law)
+        {
+            case Law.NO_MOVEMENT:
+                return !move.IsMoving();
+            default:
+                break;
+        }
+        return ret;
+    }
+
+    bool CheckLaw(Action a)
+    {
+        bool ret = true;
+        Law law = GetLaw();
+        switch (law)
+        {
+            case Law.NO_MELEE:
+                ret = a.action != Action.ActionType.MELEE;
+                break;
+            case Law.NO_RANGED:
+                ret = a.action != Action.ActionType.RANGED;
+                break;
+            default:
+                break;
+        }
+        return ret;
+    }
+    
 }
