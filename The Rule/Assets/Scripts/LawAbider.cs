@@ -8,9 +8,9 @@ public class LawAbider : MonoBehaviour
     {
         NO_MOVEMENT,
         NO_MELEE,
-        NO_RANGE,
+        NO_RANGED,
     };
-    static Law currentLaw = Law.NO_MELEE;
+    static Law currentLaw = Law.NO_MOVEMENT;
     protected Law GetLaw()
     {
         return currentLaw;

@@ -5,8 +5,12 @@ using UnityEngine;
 public class Action : MonoBehaviour
 {
     // Start is called before the first frame update
-    public int action;
-
+    public enum ActionType
+    {
+        MELEE,
+        RANGED
+    }
+    public ActionType action;
     public Action()
     {
         
