@@ -114,6 +114,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
+  swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
+  rangedAttackSounds: []
+  meleeAttackSounds: []
 --- !u!114 &6698340541707091130
 MonoBehaviour:
   m_ObjectHideFlags: 0

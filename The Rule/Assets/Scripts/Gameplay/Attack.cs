@@ -5,6 +5,7 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public GameObject projectile;
+    public GameObject swipe;
     int mask;
 
     [SerializeField] AudioClip[] rangedAttackSounds;
@@ -21,6 +22,13 @@ public class Attack : MonoBehaviour
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 origin = pos + direction;
         RaycastHit2D[] hits = Physics2D.CircleCastAll(origin, .5f, direction * 0.75f, .01f, mask);
+
+        Vector3 position = transform.position + new Vector3((direction * 1.2f).x, (direction * 1.2f).y, 0f);
+        GameObject j = Instantiate(swipe, position, Quaternion.identity);
+        float rot = Mathf.Atan(direction.y / direction.x) + Mathf.PI / 2;
+        if (direction.x >= 0) rot += Mathf.PI;
+        j.transform.Rotate(new Vector3(0f, 0f, rot * Mathf.Rad2Deg));
+
         for (int i = 0; i < hits.Length; i++)
         {
             GameObject obj = hits[i].collider.gameObject;

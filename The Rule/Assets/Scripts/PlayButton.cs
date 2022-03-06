@@ -9,11 +9,6 @@ public class PlayButton : MonoBehaviour
 
     bool started = false;
 
-    void Start()
-    {
-        
-    }
-
     public void Update()
     {
         if (started)
