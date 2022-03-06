@@ -16,10 +16,13 @@ public class Attack : MonoBehaviour
     {
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 origin = pos + direction;
-        RaycastHit2D[] hits = Physics2D.CircleCastAll(origin, 2f, direction, .1f, mask);
+        RaycastHit2D[] hits = Physics2D.CircleCastAll(origin, .5f, direction * 0.75f, .01f, mask);
         for (int i = 0; i < hits.Length; i++)
         {
+            GameObject obj = hits[i].collider.gameObject;
             Debug.Log("HIT (MELEE)! " + damage + " pts of damage.");
+            obj.GetComponent<Movement>().Knockback(direction, damage);
+            obj.GetComponent<Movement>().TakeDamage((int)damage);
         }
     }
 

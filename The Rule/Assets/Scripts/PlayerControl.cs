@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class PlayerControl : LawAbider
 {
-    const float speed = 30f;
+    const float speed = 10f;
     Movement move;
     float timer = 0f;
     Attack atk;
@@ -16,6 +16,7 @@ public class PlayerControl : LawAbider
     {
         move = GetComponent<Movement>();
         move.SetSpeed(speed);
+
         atk = GetComponent<Attack>();
         atkMask = PhysicsHelper.GetLayerMask(new int[] { 7 });
         atk.SetMask(atkMask);
@@ -34,7 +35,7 @@ public class PlayerControl : LawAbider
 
         if (Input.GetMouseButtonDown(0))
         {
-            atk.RangedAttack(1f, direction, 35f, 1f);
+            atk.RangedAttack(1f, direction, 30f, 1f);
         }
         else if (Input.GetMouseButtonDown(1))
         {
@@ -42,14 +43,13 @@ public class PlayerControl : LawAbider
         }
         if (LawManager.instance.CheckLaw(this))
         {
-            //Debug.Log("Following the law");
+            Debug.Log("Following the law");
         }
         else
         {
-            //Debug.Log("Breaking the law");
+            Debug.Log("Breaking the law");
             UIManager.instance.FadeOut();
         }
-
         // NPC interaction
         Debug.DrawRay(transform.position, maxDistanceFromNPC * direction);
         if (Input.GetKeyDown(KeyCode.Space))
