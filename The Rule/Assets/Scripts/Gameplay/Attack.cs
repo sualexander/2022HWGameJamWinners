@@ -7,9 +7,13 @@ public class Attack : MonoBehaviour
     public GameObject projectile;
     int mask;
 
+    [SerializeField] AudioClip rangedAttackSound;
+    [SerializeField] AudioClip meleeAttackSound;
+    AudioSource audioSource;
     public void SetMask(int mask)
     {
         this.mask = mask;
+        audioSource = GetComponent<AudioSource>();
     }
 
     public void MeleeAttack(float damage, Vector2 direction)
@@ -23,6 +27,9 @@ public class Attack : MonoBehaviour
             Debug.Log("HIT (MELEE)! " + damage + " pts of damage.");
             obj.GetComponent<Movement>().Knockback(direction, damage);
             obj.GetComponent<Movement>().TakeDamage((int)damage);
+            audioSource.clip = meleeAttackSound;
+            audioSource.Play(0);
+            Debug.Log("Meleed");
         }
         LawManager.instance.CheckLaw(new Action(Action.ActionType.MELEE));
     }
@@ -33,5 +40,8 @@ public class Attack : MonoBehaviour
         GameObject obj = Instantiate(projectile, position, Quaternion.identity);
         obj.GetComponent<Projectile>().Setup(damage, direction, speed, mask);
         LawManager.instance.CheckLaw(new Action(Action.ActionType.RANGED));
+        audioSource.clip = rangedAttackSound;
+        audioSource.Play();
+        Debug.Log("Ranged");
     }
 }

@@ -16,6 +16,7 @@ public class PlayerControl : LawAbider
     int health;
 
     [SerializeField] float maxDistanceFromNPC = 20f;
+
     void Start()
     {
         move = GetComponent<Movement>();
