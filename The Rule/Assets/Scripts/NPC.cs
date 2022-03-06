@@ -2,14 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Movement))]
 public class NPC : LawAbider
 {
-    Movement move;
+    public Movement move;
     float fov = 90f;
+    [SerializeField] string[] dialog;
+    int currentDialog = 0;
     // Start is called before the first frame update
     void Start()
     {
         move = GetComponent<Movement>();
+        move.SetFixedPosition(true);
     }
 
     // Update is called once per frame
@@ -31,7 +35,7 @@ public class NPC : LawAbider
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.CompareTag("Player"))
         {
             Vector2 direction = collision.transform.position - transform.position;
             float angle = Vector2.Angle(direction, transform.forward);
@@ -39,6 +43,16 @@ public class NPC : LawAbider
             {
 
             }
+        }
+    }
+
+    public void Speak()
+    {
+        Debug.Log(dialog[currentDialog]);
+        UIManager.instance.SetDialog(dialog[currentDialog]);
+        if (currentDialog < dialog.Length - 1)
+        {
+            currentDialog++;
         }
     }
 }
