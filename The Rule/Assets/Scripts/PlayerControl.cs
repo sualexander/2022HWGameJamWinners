@@ -11,6 +11,10 @@ public class PlayerControl : LawAbider
     Attack atk;
     int atkMask;
     int money;
+
+    const int maxHealth = 4;
+    int health;
+
     [SerializeField] float maxDistanceFromNPC = 20f;
     void Start()
     {
@@ -20,6 +24,10 @@ public class PlayerControl : LawAbider
         atk = GetComponent<Attack>();
         atkMask = PhysicsHelper.GetLayerMask(new int[] { 7 });
         atk.SetMask(atkMask);
+
+        health = maxHealth;
+        move.takeDamage.AddListener(Damaged);
+        if (UIManager.instance != null) UIManager.instance.SetHealth(health);
     }
 
     void Update()
@@ -79,6 +87,12 @@ public class PlayerControl : LawAbider
     public void CollectMoney(Money m)
     {
         money += m.Value;
+    }
+
+    void Damaged(int dmg)
+    {
+        health -= dmg;
+        if (UIManager.instance) UIManager.instance.SetHealth(health);
     }
     
 }

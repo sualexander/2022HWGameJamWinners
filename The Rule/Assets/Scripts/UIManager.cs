@@ -11,7 +11,8 @@ public class UIManager : MonoBehaviour
     string toType = "";
     Animator anim;
 
-    // Start is called before the first frame update
+    Animator health;
+    
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -24,9 +25,16 @@ public class UIManager : MonoBehaviour
         }
         
     }
+
     void Start()
     {
         anim = GetComponent<Animator>();
+        health = transform.Find("HealthBar").GetComponent<Animator>();
+    }
+
+    public void SetHealth(int health)
+    {
+        if (this.health != null) this.health.SetInteger("Health", health);
     }
 
     public void PlayBugleSlide()
