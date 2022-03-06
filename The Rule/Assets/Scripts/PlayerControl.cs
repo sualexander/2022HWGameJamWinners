@@ -7,9 +7,11 @@ public class PlayerControl : LawAbider
 {
     const float speed = 10f;
     Movement move;
+    float timer = 0f;
     Attack atk;
     int atkMask;
-    //float timer = 0f;
+    int money;
+    [SerializeField] float maxDistanceFromNPC = 20f;
     void Start()
     {
         move = GetComponent<Movement>();
@@ -22,7 +24,7 @@ public class PlayerControl : LawAbider
 
     void Update()
     {
-        Vector2 pos = new Vector2(transform.position.x, transform.position.y);
+        Vector2 pos = transform.position;
         Vector2 movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
@@ -46,7 +48,24 @@ public class PlayerControl : LawAbider
         //else
         //{
             //Debug.Log("Breaking the law");
-        //}
+        }
+
+        // NPC interaction
+        Debug.DrawRay(transform.position, maxDistanceFromNPC * direction);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(transform.position, direction, maxDistanceFromNPC,
+                LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                hit.collider.gameObject.GetComponent<NPC>().Speak();
+                move.SetFixedPosition(true);
+                timer = 0;
+            }
+        }
+        timer += Time.deltaTime;
+        if (timer > 0.5f) move.SetFixedPosition(false);
     }
 
     public Movement GetMovement()
@@ -54,6 +73,10 @@ public class PlayerControl : LawAbider
         return move;
     }
 
-    
+    // Called by collectables when the player enters their trigger.
+    public void CollectMoney(Money m)
+    {
+        money += m.Value;
+    }
     
 }
