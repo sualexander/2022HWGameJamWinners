@@ -13,4 +13,9 @@ public class PhysicsHelper
         }
         return mask;
     }
+
+    public static bool MaskContainsLayer(int mask, int layer)
+    {
+        return ((mask & (1 << layer)) != 0);
+    }
 }

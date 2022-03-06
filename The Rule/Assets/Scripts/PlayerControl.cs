@@ -23,6 +23,7 @@ public class PlayerControl : LawAbider
         move.SetSpeed(speed);
 
         atkMask = PhysicsHelper.GetLayerMask(new int[] { 7 });
+        atk.SetMask(atkMask);
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class PlayerControl : LawAbider
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            atk.MeleeAttack(1f, direction, atkMask);
+            atk.MeleeAttack(1f, direction);
         }
         if (CheckLaw())
         {

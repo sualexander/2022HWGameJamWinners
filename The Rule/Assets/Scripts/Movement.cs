@@ -20,6 +20,7 @@ public class Movement : MonoBehaviour
 
     void FixedUpdate()
     {
+        rb.velocity = Vector2.zero;
         Vector3 translation = movement * speed * Time.fixedDeltaTime;
         if (translation.sqrMagnitude > 0)
             rb.MovePosition(translation + transform.position);

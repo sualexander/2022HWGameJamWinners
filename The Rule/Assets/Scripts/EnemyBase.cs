@@ -10,6 +10,8 @@ public class EnemyBase : NPC
     public float speed = 100f;
     public float nextWaypointDistance = 3f;
 
+    Vector3 target = Vector3.zero;
+
     Path path;
     int currentWaypoint;
     bool reachedEndOfPath = false;
@@ -20,9 +22,24 @@ public class EnemyBase : NPC
     void Start()
     {
         move = GetComponent<Movement>();
+        move.SetSpeed(speed);
         seeker = GetComponent<Seeker>();
         seeker.StartPath(transform.position, Vector3.zero, OnPathLoad);
-        move.SetSpeed(speed);
+        InvokeRepeating("UpdatePath", .5f, .5f);
+    }
+
+    void UpdatePath()
+    {
+        if (seeker.IsDone())
+            seeker.StartPath(transform.position, Vector3.zero, OnPathLoad);
+    }
+    void OnPathLoad(Path p)
+    {
+        if (!p.error)
+        {
+            path = p;
+            currentWaypoint = 0;
+        }
     }
 
     // Update is called once per frame
@@ -35,13 +52,17 @@ public class EnemyBase : NPC
             move.SetMovement(Vector2.zero);
             reachedEndOfPath = true;
             return;
-        } else
+        } else if (Vector3.Distance(transform.position, target) < 0.2f)
+        {
+            move.SetMovement(Vector2.zero);
+            reachedEndOfPath = true;
+            return;
+        }
         {
             reachedEndOfPath = false;
         }
 
         Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
-        Debug.Log(direction);
         move.SetMovement(direction);
 
         float distance = Vector2.Distance(transform.position, path.vectorPath[currentWaypoint]);
@@ -49,15 +70,6 @@ public class EnemyBase : NPC
         if (distance < nextWaypointDistance)
         {
             currentWaypoint++;
-        }
-    }
-
-    void OnPathLoad(Path p)
-    {
-        if (!p.error)
-        {
-            path = p;
-            currentWaypoint = 0;
         }
     }
 }

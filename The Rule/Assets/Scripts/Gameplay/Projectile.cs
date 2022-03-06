@@ -9,10 +9,12 @@ public class Projectile : MonoBehaviour
     float lifetime = 0f;
     float damage;
     Movement move;
+    int mask;
 
-    public void Setup(float damage, Vector2 dir, float speed)
+    public void Setup(float damage, Vector2 dir, float speed, int mask)
     {
         this.damage = damage;
+        this.mask = mask;
         move = GetComponent<Movement>();
         move.SetSpeed(speed);
         move.SetMovement(dir);
@@ -29,7 +31,14 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("HIT (RANGED)! " + damage + " pts of damage.");
-        Destroy(gameObject);
+        GameObject obj = collision.gameObject;
+        if (PhysicsHelper.MaskContainsLayer(mask, obj.layer))
+        {
+            Debug.Log("HIT (RANGED)! " + damage + " pts of damage.");
+        }
+        if (obj.layer != 6)
+        {
+            Destroy(gameObject);
+        }
     }
 }

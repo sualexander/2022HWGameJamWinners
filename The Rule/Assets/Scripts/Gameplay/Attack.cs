@@ -5,18 +5,14 @@ using UnityEngine;
 public class Attack : MonoBehaviour
 {
     public GameObject projectile;
+    int mask;
 
-    void Start()
+    public void SetMask(int mask)
     {
-
+        this.mask = mask;
     }
 
-    void Update()
-    {
-
-    }
-
-    public void MeleeAttack(float damage, Vector2 direction, int mask)
+    public void MeleeAttack(float damage, Vector2 direction)
     {
         Vector2 pos = new Vector2(transform.position.x, transform.position.y);
         Vector2 origin = pos + direction;
@@ -31,6 +27,6 @@ public class Attack : MonoBehaviour
     {
         Vector3 position = transform.position + new Vector3((direction * radius).x, (direction*radius).y, 0f);
         GameObject obj = Instantiate(projectile, position, Quaternion.identity);
-        obj.GetComponent<Projectile>().Setup(damage, direction, speed);
+        obj.GetComponent<Projectile>().Setup(damage, direction, speed, mask);
     }
 }
