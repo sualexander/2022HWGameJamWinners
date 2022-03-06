@@ -233,8 +233,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
   swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
-  rangedAttackSounds: []
-  meleeAttackSounds: []
+  rangedAttackSounds:
+  - {fileID: 0}
+  meleeAttackSounds:
+  - {fileID: 8300000, guid: 730d54d35ab0e364a897e40a066a2dd3, type: 3}
+  - {fileID: 8300000, guid: c23eb51053d54a344a2726f5da186e56, type: 3}
 --- !u!114 &6085313122936734771
 MonoBehaviour:
   m_ObjectHideFlags: 0

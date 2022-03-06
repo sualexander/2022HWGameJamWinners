@@ -35,8 +35,9 @@ public class Attack : MonoBehaviour
             Debug.Log("HIT (MELEE)! " + damage + " pts of damage.");
             obj.GetComponent<Movement>().Knockback(direction, damage);
             obj.GetComponent<Movement>().TakeDamage((int)damage);
-            //AudioManager.instance.PlayAudio(meleeAttackSounds[Random.Range(0, meleeAttackSounds.Length - 1)]);
-            Debug.Log("Meleed");
+            int r = Random.Range(0, meleeAttackSounds.Length);
+            AudioManager.instance.PlayAudio(meleeAttackSounds[r]);
+            Debug.Log("Melee sfx: " + r);
         }
         LawManager.instance.CheckLaw(new Action(Action.ActionType.MELEE));
     }
@@ -47,7 +48,8 @@ public class Attack : MonoBehaviour
         GameObject obj = Instantiate(projectile, position, Quaternion.identity);
         obj.GetComponent<Projectile>().Setup(damage, direction, speed, mask);
         LawManager.instance.CheckLaw(new Action(Action.ActionType.RANGED));
-        //AudioManager.instance.PlayAudio(rangedAttackSounds[Random.Range(0, rangedAttackSounds.Length - 1)]);
-        Debug.Log("Ranged");
+        int r = Random.Range(0, rangedAttackSounds.Length);
+        AudioManager.instance.PlayAudio(rangedAttackSounds[r]);
+        Debug.Log("Melee sfx: " + r);
     }
 }
