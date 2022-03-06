@@ -29,7 +29,7 @@ public class Ranged : AI
         {
             if (Time.time - lastAtkTime > atkCooldown && Vector2.Distance(pPos, pos) > 2.5f)
             {
-                atk.RangedAttack(1f, (pPos - pos).normalized, 30f, 1f);
+                atk.RangedAttack(dmg, (pPos - pos).normalized, 30f, 1f);
                 lastAtkTime = Time.time;
             }
         }

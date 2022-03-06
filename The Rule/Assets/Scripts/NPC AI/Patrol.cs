@@ -6,7 +6,7 @@ public class Patrol : AI
     int currentPatrolPoint = 0;
 
     Vector3 standardPosition;
-    float playerRange = 10f * 10f; // make it the value you want squared, for performance reasons.
+    float playerRange = 20f * 20f; // make it the value you want squared, for performance reasons.
     Transform player;
     bool pursuit = false;
 
@@ -38,13 +38,13 @@ public class Patrol : AI
             if (!PlayerWithinRange())
             {
                 pursuit = false;
-                target = target = waypoints[currentPatrolPoint].position;
+                target = waypoints[currentPatrolPoint].position;
                 return;
             }
             target = pPos;
             if (Time.time - lastAtkTime > atkCooldown && Vector2.Distance(pPos, pos) < 2f)
             {
-                atk.MeleeAttack(1f, (pPos - pos).normalized);
+                atk.MeleeAttack(dmg, (pPos - pos).normalized);
                 lastAtkTime = Time.time;
             }
         } else

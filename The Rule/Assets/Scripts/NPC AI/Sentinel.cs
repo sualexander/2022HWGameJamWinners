@@ -3,7 +3,7 @@ using UnityEngine;
 public class Sentinel : AI
 {
     Vector3 standardPosition;
-    float playerRange = 10f * 10f; // make it the value you want squared, for performance reasons.
+    float playerRange = 20f * 20f; // make it the value you want squared, for performance reasons.
     Transform player;
     bool pursuit = false;
 
@@ -32,16 +32,20 @@ public class Sentinel : AI
         }
         if (pursuit)
         {
-            if (!PlayerWithinRange())
-            {
-                pursuit = false;
-                target = standardPosition;
-                return;
-            }
             target = pPos;
+        }
+        if (pursuit && !PlayerWithinRange())
+        {
+            pursuit = false;
+            target = standardPosition;
+            return;
+        }
+        if (pursuit)
+        {
+            Debug.Log(target);
             if (Time.time - lastAtkTime > atkCooldown && Vector2.Distance(pPos, pos) < 2f)
             {
-                atk.MeleeAttack(1f, (pPos - pos).normalized);
+                atk.MeleeAttack(dmg, (pPos - pos).normalized);
                 lastAtkTime = Time.time;
             }
         }

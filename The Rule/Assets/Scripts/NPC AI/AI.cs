@@ -63,13 +63,13 @@ public class AI : NPC
     {
         if (path == null)
             return;
-        if (currentWaypoint >= path.vectorPath.Count && !reachedEndOfPath)
+        if (currentWaypoint >= path.vectorPath.Count /*&& !reachedEndOfPath*/)
         {
             move.SetMovement(Vector2.zero);
             reachedEndOfPath = true;
             return;
         }
-        else if (Vector3.Distance(transform.position, target) < 0.1f && !reachedEndOfPath)
+        else if (Vector3.Distance(transform.position, target) < 0.1f /*&& !reachedEndOfPath**/)
         {
             move.SetMovement(Vector2.zero);
             reachedEndOfPath = true;
@@ -79,10 +79,7 @@ public class AI : NPC
         {
             reachedEndOfPath = false;
         }
-        else
-        {
-            return;
-        }
+
         Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         move.SetMovement(direction);
 
