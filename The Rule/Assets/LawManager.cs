@@ -46,7 +46,7 @@ public class LawManager : MonoBehaviour
 
     static void ChangeLaw()
     {
-        // Change the max here to be the length of Law
+        // Change the second argument to Random to be the length of Law
         currentLaw = (Law)Random.Range(0, 3);
         UIManager.instance.PlayBugleSlide();
     }
