@@ -233,7 +233,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
   swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
-  rangedAttackSounds: []
+  rangedAttackSounds:
+  - {fileID: 8300000, guid: 406816dd272d31849a37cf35dcced23f, type: 3}
   meleeAttackSounds: []
 --- !u!114 &5407980716214271759
 MonoBehaviour:

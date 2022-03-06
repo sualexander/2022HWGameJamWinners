@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class LawAbider : MonoBehaviour
 {
-    static LawManager.Law currentLaw = LawManager.Law.NO_MOVEMENT;
+    static LawManager.Law currentLaw = LawManager.Law.DONT_STOP;
     protected LawManager.Law GetLaw()
     {
         return currentLaw;

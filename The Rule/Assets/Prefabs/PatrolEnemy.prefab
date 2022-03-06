@@ -116,7 +116,14 @@ MonoBehaviour:
   projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
   swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
   rangedAttackSounds: []
-  meleeAttackSounds: []
+  meleeAttackSounds:
+  - {fileID: 8300000, guid: 730d54d35ab0e364a897e40a066a2dd3, type: 3}
+  - {fileID: 8300000, guid: c23eb51053d54a344a2726f5da186e56, type: 3}
+  - {fileID: 8300000, guid: a5d1bbb544ebbce43951cef174686926, type: 3}
+  - {fileID: 8300000, guid: 73554a988b48bc2449d1df19821ecd1b, type: 3}
+  - {fileID: 8300000, guid: e2029b2c6e7c2c847afb7412dbd7cdba, type: 3}
+  - {fileID: 8300000, guid: 3ea6de899993e0f448c96c917159f769, type: 3}
+  meleeMiss: {fileID: 8300000, guid: f2493d2c222c75b42adda8142cb00143, type: 3}
 --- !u!114 &6698340541707091130
 MonoBehaviour:
   m_ObjectHideFlags: 0

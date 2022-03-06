@@ -34,6 +34,7 @@ public class AI : NPC
         health = maxHealth;
         move = GetComponent<Movement>();
         atk = GetComponent<Attack>();
+        Debug.Log(atk);
         atk.SetMask(PhysicsHelper.GetLayerMask(new int[] { 6 }));
         move.SetSpeed(speed);
 

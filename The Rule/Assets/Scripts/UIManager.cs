@@ -15,6 +15,7 @@ public class UIManager : MonoBehaviour
     Animator health;
     Text coins;
     TextMeshProUGUI text;
+    Animator alert;
     
     private void Awake()
     {
@@ -34,7 +35,11 @@ public class UIManager : MonoBehaviour
         anim = GetComponent<Animator>();
         health = transform.Find("HealthBar").GetComponent<Animator>();
         coins = transform.Find("MoneyCount").GetComponent<Text>();
-        text = transform.Find("LAWTEXT").GetComponent<TextMeshProUGUI>();
+        alert = transform.Find("Alert").GetComponent<Animator>();
+        if (transform.Find("LAWTEXT"))
+        {
+            text = transform.Find("LAWTEXT").GetComponent<TextMeshProUGUI>();
+        }
     }
 
     public void SetHealth(int health)
@@ -49,7 +54,10 @@ public class UIManager : MonoBehaviour
 
     public void PlayBugleSlide(string law)
     {
-        text.text = "THE LAW: " + law;
+        if (text)
+        {
+            text.text = "THE LAW: " + law;
+        }
         anim.Play("bugleslide");
     }
 
@@ -59,6 +67,11 @@ public class UIManager : MonoBehaviour
         dialogBox.text = "";
         toType = msg;
         StartCoroutine(Typewriter());
+    }
+
+    public void Alert()
+    {
+        alert.SetTrigger("Alert");
     }
 
     IEnumerator Typewriter()

@@ -10,6 +10,7 @@ public class Attack : MonoBehaviour
 
     [SerializeField] AudioClip[] rangedAttackSounds;
     [SerializeField] AudioClip[] meleeAttackSounds;
+    [SerializeField] AudioClip meleeMiss;
     AudioSource audioSource;
     public void SetMask(int mask)
     {
@@ -28,7 +29,6 @@ public class Attack : MonoBehaviour
         float rot = Mathf.Atan(direction.y / direction.x) + Mathf.PI / 2;
         if (direction.x >= 0) rot += Mathf.PI;
         j.transform.Rotate(new Vector3(0f, 0f, rot * Mathf.Rad2Deg));
-
         for (int i = 0; i < hits.Length; i++)
         {
             GameObject obj = hits[i].collider.gameObject;
@@ -39,7 +39,10 @@ public class Attack : MonoBehaviour
             AudioManager.instance.PlayAudio(meleeAttackSounds[r]);
             Debug.Log("Melee sfx: " + r);
         }
-        LawManager.instance.CheckLaw(new Action(Action.ActionType.MELEE));
+        if (hits.Length < 1)
+        {
+            AudioManager.instance.PlayAudio(meleeMiss);
+        }
     }
 
     public void RangedAttack(float damage, Vector2 direction, float speed, float radius)
@@ -47,7 +50,6 @@ public class Attack : MonoBehaviour
         Vector3 position = transform.position + new Vector3((direction * radius).x, (direction*radius).y, 0f);
         GameObject obj = Instantiate(projectile, position, Quaternion.identity);
         obj.GetComponent<Projectile>().Setup(damage, direction, speed, mask);
-        LawManager.instance.CheckLaw(new Action(Action.ActionType.RANGED));
         int r = Random.Range(0, rangedAttackSounds.Length);
         AudioManager.instance.PlayAudio(rangedAttackSounds[r]);
         Debug.Log("Melee sfx: " + r);
