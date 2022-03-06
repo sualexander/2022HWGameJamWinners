@@ -50,7 +50,8 @@ public class Attack : MonoBehaviour
         Vector3 position = transform.position + new Vector3((direction * radius).x, (direction*radius).y, 0f);
         GameObject obj = Instantiate(projectile, position, Quaternion.identity);
         obj.GetComponent<Projectile>().Setup(damage, direction, speed, mask);
-        int r = Random.Range(0, rangedAttackSounds.Length);
+        LawManager.instance.CheckLaw(new Action(Action.ActionType.RANGED));
+        int r = Random.Range(0, rangedAttackSounds.Length - 1);
         AudioManager.instance.PlayAudio(rangedAttackSounds[r]);
         Debug.Log("Melee sfx: " + r);
     }
