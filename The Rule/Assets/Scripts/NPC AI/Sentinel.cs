@@ -42,7 +42,6 @@ public class Sentinel : AI
         }
         if (pursuit)
         {
-            Debug.Log(target);
             if (Time.time - lastAtkTime > atkCooldown && Vector2.Distance(pPos, pos) < 2f)
             {
                 atk.MeleeAttack(dmg, (pPos - pos).normalized);

@@ -22,11 +22,29 @@ public class Movement : MonoBehaviour
     Vector2 knockback;
     float knockbackTime = 0f;
 
+    Animator anim;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         rb.gravityScale = 0f;
         rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        if (transform.childCount > 0)
+        {
+
+            GameObject obj = transform.GetChild(0).gameObject;
+            anim = obj.GetComponent<Animator>();
+        }
+    }
+
+    private void Update()
+    {
+        if (anim != null)
+        {
+            anim.SetFloat("dirX", direction.x);
+            anim.SetFloat("dirY", direction.y);
+            anim.SetFloat("speed", movement.magnitude);
+        }
     }
 
     void FixedUpdate()
@@ -46,7 +64,7 @@ public class Movement : MonoBehaviour
     public void SetMovement(Vector2 movement)
     {
         this.movement = movement.normalized;
-        if (movement != movement.normalized)
+        if (movement != Vector2.zero)
         {
             direction = movement;
         }

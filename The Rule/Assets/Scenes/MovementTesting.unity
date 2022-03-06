@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &33946314 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 954599651, guid: cf03b634e6395c540a1115c795002678, type: 3}
-  m_PrefabInstance: {fileID: 298890843}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &38846971
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -217,10 +212,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 954599653, guid: cf03b634e6395c540a1115c795002678, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 243125931229333941, guid: cf03b634e6395c540a1115c795002678, type: 3}
       propertyPath: m_Name
       value: UIManager
@@ -309,10 +300,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 243125931229333947, guid: cf03b634e6395c540a1115c795002678, type: 3}
-      propertyPath: panel
-      value: 
-      objectReference: {fileID: 33946314}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf03b634e6395c540a1115c795002678, type: 3}
 --- !u!1 &458046927
@@ -907,6 +894,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1525775181588299035, guid: 0d0ed1a3d3e8e13448f7c021f231d713, type: 3}
+      propertyPath: assets
+      value: 
+      objectReference: {fileID: 11400000, guid: a1dc23eaf3299394abb97160c953db64, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d0ed1a3d3e8e13448f7c021f231d713, type: 3}
 --- !u!1001 &5407980716120289784
