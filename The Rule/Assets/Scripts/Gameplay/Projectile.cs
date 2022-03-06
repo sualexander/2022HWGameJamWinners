@@ -10,11 +10,13 @@ public class Projectile : MonoBehaviour
     float damage;
     Movement move;
     int mask;
+    Vector2 dir;
 
     public void Setup(float damage, Vector2 dir, float speed, int mask)
     {
         this.damage = damage;
         this.mask = mask;
+        this.dir = dir;
         move = GetComponent<Movement>();
         move.SetSpeed(speed);
         move.SetMovement(dir);
@@ -35,6 +37,8 @@ public class Projectile : MonoBehaviour
         if (PhysicsHelper.MaskContainsLayer(mask, obj.layer))
         {
             Debug.Log("HIT (RANGED)! " + damage + " pts of damage.");
+            obj.GetComponent<Movement>().Knockback(dir, damage * 0.6f);
+            obj.GetComponent<Movement>().TakeDamage((int)damage);
         }
         if (obj.layer != 6)
         {

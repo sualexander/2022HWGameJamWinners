@@ -5,15 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class NPC : LawAbider
 {
+    [HideInInspector]
     public Movement move;
     float fov = 90f;
-    // Start is called before the first frame update
+
     void Start()
     {
         move = GetComponent<Movement>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         Law law = GetLaw();
