@@ -12,6 +12,7 @@ public class Projectile : MonoBehaviour
     int mask;
     Vector2 dir;
 
+    RandomizedAudio randomizedAudio;
     public void Setup(float damage, Vector2 dir, float speed, int mask)
     {
         float rot = Mathf.Atan(dir.y / dir.x) + Mathf.PI/2;
@@ -23,6 +24,7 @@ public class Projectile : MonoBehaviour
         move = GetComponent<Movement>();
         move.SetSpeed(speed);
         move.SetMovement(dir);
+        randomizedAudio = GetComponent<RandomizedAudio>();
     }
 
     private void Update()
@@ -42,6 +44,7 @@ public class Projectile : MonoBehaviour
             Debug.Log("HIT (RANGED)! " + damage + " pts of damage.");
             obj.GetComponent<Movement>().Knockback(dir, damage * 0.6f);
             obj.GetComponent<Movement>().TakeDamage((int)damage);
+            randomizedAudio.PlayRandomAudio();
         }
         Destroy(gameObject);
     }

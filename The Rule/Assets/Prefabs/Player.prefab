@@ -201,6 +201,23 @@ SpriteRenderer:
 --- !u!95 &1228437321084491144
 Animator:
   serializedVersion: 3
+--- !u!114 &1525775181344800136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525775181344800150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42b3123284f3cd74b84351cadf63a5d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &1525775181344800143
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -218,6 +235,19 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1525775181588299035
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 628ea4eaa2a26494484210832975661f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
+  rangedAttackSounds:
+  - {fileID: 8300000, guid: 406816dd272d31849a37cf35dcced23f, type: 3}
+  meleeAttackSounds:
+  - {fileID: 8300000, guid: c7850056494f8f241b814a6677555410, type: 3}
+  - {fileID: 8300000, guid: 30d5aa948ff5c224bb436d028583fd0c, type: 3}
+  - {fileID: 8300000, guid: 4d124418c8acea342a3a46b446241b0d, type: 3}
+  - {fileID: 8300000, guid: aa0ea318bd033e14685bfd152088f3ce, type: 3}
+--- !u!114 &1525775181344800137
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -232,3 +262,41 @@ MonoBehaviour:
   assets: {fileID: 11400000, guid: a1dc23eaf3299394abb97160c953db64, type: 2}
   direction: 0
   frame: 0
+  maxDistanceFromNPC: 20
+--- !u!58 &1525775181344800140
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525775181344800150}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.5
+--- !u!50 &1525775181344800141
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525775181344800150}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
