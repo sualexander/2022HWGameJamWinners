@@ -14,6 +14,8 @@ public class LawManager : MonoBehaviour
     static Law currentLaw = Law.NO_MOVEMENT;
 
     public static LawManager instance;
+    public GameObject meleeGuard;
+    bool hasSpawnedGuards = false;
     float timer = 0;
     private void Awake()
     {
@@ -35,9 +37,10 @@ public class LawManager : MonoBehaviour
         {
             timer = 0f;
             Law newLaw = (Law)Random.Range(0, 4);
-            Debug.Log(newLaw);
             UIManager.instance.PlayBugleSlide();
+            Debug.Log(newLaw);
             StartCoroutine(ChangeLaw(newLaw));
+            hasSpawnedGuards = false;
         }
     }
 
@@ -53,7 +56,6 @@ public class LawManager : MonoBehaviour
         yield return new WaitForSeconds(2);
         currentLaw = law;
         UIManager.instance.PlayBugleSlide();
-        Debug.Log(GetLaw());
     }
 
     public bool CheckLaw(PlayerControl plr)
@@ -68,10 +70,13 @@ public class LawManager : MonoBehaviour
             default:
                 break;
         }
-        if (!ret)
+        if (!ret && !hasSpawnedGuards)
         {
             Debug.Log("You broke the law...");
-            UIManager.instance.FadeOut();
+            Vector2 posToSpawn = plr.gameObject.transform.position;
+            Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
+            Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
+            hasSpawnedGuards = true;
         }
         return ret;
     }
