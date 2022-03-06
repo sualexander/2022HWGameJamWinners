@@ -56,16 +56,17 @@ public class LawManager : MonoBehaviour
     {
         Movement move = plr.GetMovement();
         bool ret = true;
-        Law law = GetLaw();
-        switch (law)
+        switch (currentLaw)
         {
             case Law.NO_MOVEMENT:
-                return !move.IsMoving();
+                ret = !move.IsMoving();
+                break;
             default:
                 break;
         }
         if (!ret)
         {
+            Debug.Log("You broke the law...");
             UIManager.instance.FadeOut();
         }
         return ret;
@@ -75,7 +76,7 @@ public class LawManager : MonoBehaviour
     {
         bool ret = true;
         Law law = GetLaw();
-        switch (law)
+        switch (currentLaw)
         {
             case Law.NO_MELEE:
                 ret = a.action != Action.ActionType.MELEE;

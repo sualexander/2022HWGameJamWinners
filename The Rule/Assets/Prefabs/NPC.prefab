@@ -70,6 +70,7 @@ MonoBehaviour:
   - Like a lot...
   - Like... too much...
   - This is the last dialog!!!
+  money: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
 --- !u!212 &4371889354676454059
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -154,3 +155,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42b3123284f3cd74b84351cadf63a5d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  takeDamage:
+    m_PersistentCalls:
+      m_Calls: []
