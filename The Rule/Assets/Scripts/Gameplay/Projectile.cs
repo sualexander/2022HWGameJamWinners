@@ -40,9 +40,6 @@ public class Projectile : MonoBehaviour
             obj.GetComponent<Movement>().Knockback(dir, damage * 0.6f);
             obj.GetComponent<Movement>().TakeDamage((int)damage);
         }
-        if (obj.layer != 6)
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

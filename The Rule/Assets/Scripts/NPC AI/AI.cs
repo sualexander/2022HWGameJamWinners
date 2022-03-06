@@ -16,13 +16,13 @@ public class AI : NPC
     public int health;
 
     public float nextWaypointDistance = .5f;
-
+    protected float distanceToTarget = 0f;
 
     protected Vector3 target = Vector3.zero;
 
-    Path path;
-    int currentWaypoint;
-    bool reachedEndOfPath = false;
+    protected Path path;
+    protected int currentWaypoint;
+    protected bool reachedEndOfPath = false;
 
     Seeker seeker;
     
@@ -46,7 +46,7 @@ public class AI : NPC
         move.takeDamage.AddListener(Damaged);
     }
 
-    void UpdatePath()
+    protected void UpdatePath()
     {
         if (seeker.IsDone())
             seeker.StartPath(transform.position, target, OnPathLoad);
@@ -63,19 +63,26 @@ public class AI : NPC
     {
         if (path == null)
             return;
-        if (currentWaypoint >= path.vectorPath.Count)
+        if (currentWaypoint >= path.vectorPath.Count && !reachedEndOfPath)
         {
             move.SetMovement(Vector2.zero);
             reachedEndOfPath = true;
             return;
         }
-        else if (Vector3.Distance(transform.position, target) < 0.1f)
+        else if (Vector3.Distance(transform.position, target) < 0.1f && !reachedEndOfPath)
         {
             move.SetMovement(Vector2.zero);
             reachedEndOfPath = true;
             return;
         }
-        reachedEndOfPath = false;
+        else if (!reachedEndOfPath)
+        {
+            reachedEndOfPath = false;
+        }
+        else
+        {
+            return;
+        }
         Vector2 direction = (path.vectorPath[currentWaypoint] - transform.position).normalized;
         move.SetMovement(direction);
 

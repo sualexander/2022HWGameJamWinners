@@ -48,7 +48,7 @@ public class PlayerControl : LawAbider
         //else
         //{
             //Debug.Log("Breaking the law");
-        }
+        //}
 
         // NPC interaction
         Debug.DrawRay(transform.position, maxDistanceFromNPC * direction);

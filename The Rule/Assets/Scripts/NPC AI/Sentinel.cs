@@ -30,21 +30,18 @@ public class Sentinel : AI
         {
             pursuit = true;
         }
-        if (pursuit && !PlayerWithinRange())
-        {
-            pursuit = false;
-            target = standardPosition;
-        }
         if (pursuit)
         {
-            target = pPos;
-        }
-
-        if (pursuit)
-        {
-            if (Time.time - lastAtkTime > atkCooldown && Vector2.Distance(pPos, pos) > 2f)
+            if (!PlayerWithinRange())
             {
-                atk.MeleeAttack(1f, (pPos-pos).normalized);
+                pursuit = false;
+                target = standardPosition;
+                return;
+            }
+            target = pPos;
+            if (Time.time - lastAtkTime > atkCooldown && Vector2.Distance(pPos, pos) < 2f)
+            {
+                atk.MeleeAttack(1f, (pPos - pos).normalized);
                 lastAtkTime = Time.time;
             }
         }
