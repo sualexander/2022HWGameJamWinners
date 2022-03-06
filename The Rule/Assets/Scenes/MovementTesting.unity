@@ -300,6 +300,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 781486812966095892, guid: cf03b634e6395c540a1115c795002678, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5185649437945853404, guid: 3071ce459a51c5c4287c3dfa1771d597, type: 3}
+    - target: {fileID: 8733060599676372399, guid: cf03b634e6395c540a1115c795002678, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 190.3463
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733060599676372399, guid: cf03b634e6395c540a1115c795002678, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 47.5866
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733060599676372399, guid: cf03b634e6395c540a1115c795002678, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 103.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 8733060599676372399, guid: cf03b634e6395c540a1115c795002678, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -32.7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cf03b634e6395c540a1115c795002678, type: 3}
 --- !u!1 &458046927
@@ -659,6 +679,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 0}
   dialog: []
+  money: {fileID: 0}
   speed: 4
   dmg: 1
   maxHealth: 5
@@ -898,6 +919,10 @@ PrefabInstance:
       propertyPath: assets
       value: 
       objectReference: {fileID: 11400000, guid: a1dc23eaf3299394abb97160c953db64, type: 2}
+    - target: {fileID: 1525775181588299035, guid: 0d0ed1a3d3e8e13448f7c021f231d713, type: 3}
+      propertyPath: direction
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d0ed1a3d3e8e13448f7c021f231d713, type: 3}
 --- !u!1001 &5407980716120289784

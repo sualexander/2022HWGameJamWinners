@@ -4,7 +4,7 @@ TextureImporter:
   internalIDToNameTable:
   - first:
       213: -5185649437945853404
-    second: health_full
+    second: health_4
   - first:
       213: -3447507480621012285
     second: health_3
@@ -13,19 +13,19 @@ TextureImporter:
     second: health_2
   - first:
       213: 5177600715358851464
-    second: health_1
+    second: health_3
   - first:
       213: -719141606729432441
-    second: health_0
+    second: health_4
   - first:
       213: -3343938649688317453
-    second: health_full_flash
+    second: health_5
   - first:
       213: 492451919312044996
-    second: health_3_flash
+    second: health_6
   - first:
       213: -476235458974827166
-    second: health_2_flash
+    second: health_7
   - first:
       213: 6546745836180781895
     second: health_1_flash
@@ -62,7 +62,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -98,7 +98,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -110,7 +110,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -122,7 +122,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -133,15 +133,15 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: health_full
+      name: health_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 228
-        width: 272
-        height: 49
+        y: 48
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -154,15 +154,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_3
+      name: health_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 170
-        width: 272
-        height: 50
+        x: 64
+        y: 48
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,11 +179,11 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 114
-        width: 272
-        height: 49
+        y: 32
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -196,15 +196,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_1
+      name: health_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 57
-        width: 272
-        height: 49
+        x: 64
+        y: 32
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -217,15 +217,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_0
+      name: health_4
       rect:
         serializedVersion: 2
-        x: 1
-        y: 1
-        width: 272
-        height: 49
+        x: 0
+        y: 16
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -238,15 +238,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_full_flash
+      name: health_5
       rect:
         serializedVersion: 2
-        x: 274
-        y: 227
-        width: 272
-        height: 49
+        x: 64
+        y: 16
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -259,15 +259,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_3_flash
+      name: health_6
       rect:
         serializedVersion: 2
-        x: 274
-        y: 170
-        width: 272
-        height: 49
+        x: 0
+        y: 0
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -280,15 +280,15 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: health_2_flash
+      name: health_7
       rect:
         serializedVersion: 2
-        x: 274
-        y: 113
-        width: 272
-        height: 49
+        x: 64
+        y: 0
+        width: 64
+        height: 16
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -296,48 +296,6 @@ TextureImporter:
       bones: []
       spriteID: 26d3c5e8f521469f0800000000000000
       internalID: -476235458974827166
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health_1_flash
-      rect:
-        serializedVersion: 2
-        x: 274
-        y: 56
-        width: 272
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 74bb250e6a6bada50800000000000000
-      internalID: 6546745836180781895
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: health_0_flash
-      rect:
-        serializedVersion: 2
-        x: 275
-        y: 0
-        width: 271
-        height: 49
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 8c47d7dc683f1ed30800000000000000
-      internalID: 4459112866372220104
       vertices: []
       indices: 
       edges: []
