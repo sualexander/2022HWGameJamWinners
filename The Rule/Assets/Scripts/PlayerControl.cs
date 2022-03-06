@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 [RequireComponent(typeof(Movement))]
 public class PlayerControl : LawAbider
@@ -53,7 +54,7 @@ public class PlayerControl : LawAbider
         }
         else if (Input.GetMouseButtonDown(1))
         {
-            atk.MeleeAttack(1f, direction);
+            atk.MeleeAttack(3f, direction);
         }
 
         LawManager.instance.CheckLaw(this);
@@ -91,6 +92,21 @@ public class PlayerControl : LawAbider
     {
         health -= dmg;
         if (UIManager.instance) UIManager.instance.SetHealth(health);
+        if (health < 0)
+        {
+            Death();
+        }
     }
-    
+
+    void Death()
+    {
+        UIManager.instance.FadeOut();
+        Invoke("LoadJail", 1.5f);
+    }
+
+    void LoadJail()
+    {
+        SceneManager.LoadScene("Jail");
+    }
+
 }

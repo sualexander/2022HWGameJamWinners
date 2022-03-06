@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -13,6 +14,7 @@ public class UIManager : MonoBehaviour
 
     Animator health;
     Text coins;
+    TextMeshProUGUI text;
     
     private void Awake()
     {
@@ -32,6 +34,7 @@ public class UIManager : MonoBehaviour
         anim = GetComponent<Animator>();
         health = transform.Find("HealthBar").GetComponent<Animator>();
         coins = transform.Find("MoneyCount").GetComponent<Text>();
+        text = transform.Find("LAWTEXT").GetComponent<TextMeshProUGUI>();
     }
 
     public void SetHealth(int health)
@@ -44,10 +47,10 @@ public class UIManager : MonoBehaviour
         if (this.coins != null) this.coins.text = coins.ToString();
     }
 
-    public void PlayBugleSlide()
+    public void PlayBugleSlide(string law)
     {
+        text.text = "THE LAW: " + law;
         anim.Play("bugleslide");
-        Debug.Log("Bugle Slide");
     }
 
     public void SetDialog(string msg)

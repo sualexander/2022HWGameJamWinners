@@ -37,9 +37,28 @@ public class LawManager : MonoBehaviour
         {
             timer = 0f;
             Law newLaw = (Law)Random.Range(0, 4);
-            UIManager.instance.PlayBugleSlide();
             Debug.Log(newLaw);
             StartCoroutine(ChangeLaw(newLaw));
+            string law;
+            switch (newLaw)
+            {
+                case Law.THROW_MONEY:
+                    law = "You shall throw your money";
+                    break;
+                case Law.NO_MOVEMENT:
+                    law = "You shall not move";
+                    break;
+                case Law.NO_MELEE:
+                    law = "You shall not use melee weapons";
+                    break;
+                case Law.NO_RANGED:
+                    law = "You shall not use ranged weapons";
+                    break;
+                default:
+                    law = "Anarchy";
+                    break;
+            }
+            UIManager.instance.PlayBugleSlide(law);
             hasSpawnedGuards = false;
         }
     }
@@ -55,7 +74,6 @@ public class LawManager : MonoBehaviour
         // Change the second argument to Random to be the length of Law
         yield return new WaitForSeconds(2);
         currentLaw = law;
-        UIManager.instance.PlayBugleSlide();
     }
 
     public bool CheckLaw(PlayerControl plr)
@@ -99,7 +117,7 @@ public class LawManager : MonoBehaviour
         if (!ret)
         {
             Debug.Log("You broke the law...");
-            UIManager.instance.FadeOut();
+            //UIManager.instance.FadeOut();
         }
         return ret;
     }
