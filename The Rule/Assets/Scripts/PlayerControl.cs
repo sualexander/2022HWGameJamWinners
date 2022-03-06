@@ -43,7 +43,12 @@ public class PlayerControl : LawAbider
 
         if (Input.GetMouseButtonDown(0))
         {
-            atk.RangedAttack(1f, direction, 30f, 1f);
+            if (money >= 5)
+            {
+                money -= 5;
+                atk.RangedAttack(1f, direction, 30f, 1f);
+                if (UIManager.instance) UIManager.instance.SetGold(money);
+            }
         }
         else if (Input.GetMouseButtonDown(1))
         {

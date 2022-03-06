@@ -230,3 +230,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   assets: {fileID: 11400000, guid: a1dc23eaf3299394abb97160c953db64, type: 2}
+  direction: 0
+  frame: 0
