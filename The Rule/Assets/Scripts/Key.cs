@@ -24,7 +24,7 @@ public class Key : MonoBehaviour
         if (collision.gameObject.CompareTag("Player"))
         {
             door.Open();
-            Destroy(this);
+            Destroy(this.gameObject);
         }
     }
 }

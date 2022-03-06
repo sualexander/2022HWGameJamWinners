@@ -5,8 +5,10 @@ using UnityEngine.UI;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
-    [SerializeField] Text dialogueBox;
+    [SerializeField] Text dialogBox;
+    string toType = "";
     Animator anim;
+
     // Start is called before the first frame update
     private void Awake()
     {
@@ -24,12 +26,6 @@ public class UIManager : MonoBehaviour
         anim = GetComponent<Animator>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlayBugleSlide()
     {
         anim.Play("bugleslide");
@@ -38,6 +34,18 @@ public class UIManager : MonoBehaviour
 
     public void SetDialog(string msg)
     {
-        dialogueBox.text = msg;
+        StopAllCoroutines();
+        dialogBox.text = "";
+        toType = msg;
+        StartCoroutine(Typewriter());
+    }
+
+    IEnumerator Typewriter()
+    {
+        foreach (char c in toType) 
+        {
+            dialogBox.text += c;
+            yield return new WaitForSeconds(.1f);
+        }
     }
 }

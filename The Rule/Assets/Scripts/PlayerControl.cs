@@ -10,6 +10,7 @@ public class PlayerControl : LawAbider
     float timer = 0f;
     Attack atk;
     int atkMask;
+    int money;
     [SerializeField] float maxDistanceFromNPC = 20f;
     void Start()
     {
@@ -58,8 +59,12 @@ public class PlayerControl : LawAbider
             if (hit.collider != null)
             {
                 hit.collider.gameObject.GetComponent<NPC>().Speak();
+                move.SetFixedPosition(true);
+                timer = 0;
             }
         }
+        timer += Time.deltaTime;
+        if (timer > 0.5f) move.SetFixedPosition(false);
     }
 
     public Movement GetMovement()
@@ -67,6 +72,10 @@ public class PlayerControl : LawAbider
         return move;
     }
 
-    
+    // Called by collectables when the player enters their trigger.
+    public void CollectMoney(Money m)
+    {
+        money += m.Value;
+    }
     
 }
