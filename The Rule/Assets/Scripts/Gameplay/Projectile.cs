@@ -14,6 +14,9 @@ public class Projectile : MonoBehaviour
 
     public void Setup(float damage, Vector2 dir, float speed, int mask)
     {
+        float rot = Mathf.Atan(dir.y / dir.x) + Mathf.PI/2;
+        if (dir.x >= 0) rot += Mathf.PI;
+        transform.Rotate(new Vector3(0f, 0f, rot * Mathf.Rad2Deg));
         this.damage = damage;
         this.mask = mask;
         this.dir = dir;
