@@ -47,6 +47,7 @@ public class PlayerControl : LawAbider
         else
         {
             //Debug.Log("Breaking the law");
+            UIManager.instance.FadeOut();
         }
 
         // NPC interaction
