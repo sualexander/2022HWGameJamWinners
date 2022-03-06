@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Money : MonoBehaviour
 {
-    private int value;
+    [SerializeField] private int value;
 
     public int Value
     {

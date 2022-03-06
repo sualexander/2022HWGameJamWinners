@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LawManager : MonoBehaviour
 {
-    protected enum Law
+    public enum Law
     {
+        THROW_MONEY,
         NO_MOVEMENT,
         NO_MELEE,
         NO_RANGED,
@@ -39,7 +40,7 @@ public class LawManager : MonoBehaviour
     }
 
     
-    protected Law GetLaw()
+    public Law GetLaw()
     {
         return currentLaw;
     }
@@ -47,7 +48,7 @@ public class LawManager : MonoBehaviour
     static void ChangeLaw()
     {
         // Change the second argument to Random to be the length of Law
-        currentLaw = (Law)Random.Range(0, 3);
+        currentLaw = (Law)Random.Range(0, 4);
         UIManager.instance.PlayBugleSlide();
     }
 
