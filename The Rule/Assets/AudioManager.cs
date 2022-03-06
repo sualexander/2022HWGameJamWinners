@@ -5,7 +5,7 @@ using UnityEngine;
 public class AudioManager : MonoBehaviour
 {
     // Start is called before the first frame update
-    static AudioManager instance;
+    public static AudioManager instance;
     void Start()
     {
         if (instance != null && instance != this)
@@ -24,8 +24,20 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    void PlayAudio(AudioClip ac)
+    public void PlayAudio(AudioClip ac)
     {
+        StartCoroutine(playAudioCoroutine(ac));
+    }
 
+    IEnumerator playAudioCoroutine(AudioClip ac)
+    {
+        AudioSource audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.clip = ac;
+        audioSource.Play();
+        while (audioSource.isPlaying)
+        {
+            yield return new WaitForEndOfFrame();
+        }
+        Destroy(audioSource);
     }
 }
