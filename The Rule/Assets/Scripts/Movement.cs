@@ -24,6 +24,8 @@ public class Movement : MonoBehaviour
 
     Animator anim;
 
+    float straightWalkingTime = 0f;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -59,6 +61,8 @@ public class Movement : MonoBehaviour
         {
             rb.MovePosition(translation + transform.position);
         }
+
+        straightWalkingTime += Time.fixedDeltaTime;
     }
 
     public void SetMovement(Vector2 movement)
@@ -67,6 +71,10 @@ public class Movement : MonoBehaviour
         if (movement != Vector2.zero)
         {
             direction = movement;
+        }
+        if ((movement.x != 0 && movement.y != 0) || movement == Vector2.zero)
+        {
+            straightWalkingTime = 0f;
         }
     }
 
@@ -105,5 +113,10 @@ public class Movement : MonoBehaviour
     public void TakeDamage(int dmg)
     {
         takeDamage.Invoke(dmg);
+    }
+
+    public bool IsZigZagging()
+    {
+        return !(straightWalkingTime > 0.25) ;
     }
 }

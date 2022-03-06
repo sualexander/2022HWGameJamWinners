@@ -73,7 +73,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 937d78ee23b7c6d4f966236b8c12edbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 52489ab2c6d706848943ec4142307523, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc569d110af5b2740a1346c595e9a35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assets: {fileID: 11400000, guid: 0ffa3b869af4c524abcb3955d571a64b, type: 2}
+  assets: {fileID: 11400000, guid: 93f285afb026b9e42a7d03aeb619d820, type: 2}
   direction: 0
   frame: 0
 --- !u!95 &527275293
@@ -233,8 +233,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
   swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
-  rangedAttackSounds: []
+  rangedAttackSounds:
+  - {fileID: 8300000, guid: 406816dd272d31849a37cf35dcced23f, type: 3}
   meleeAttackSounds: []
+  meleeMiss: {fileID: 0}
 --- !u!114 &5407980716214271759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -256,6 +258,7 @@ MonoBehaviour:
   canKill: 1
   health: 0
   nextWaypointDistance: 0.5
+  coin: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
 --- !u!70 &373213588
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

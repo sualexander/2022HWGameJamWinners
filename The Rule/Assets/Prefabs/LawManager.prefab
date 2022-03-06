@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   meleeGuard: {fileID: 6085313122936734780, guid: 43900a21ab011914eaef9d9cafeea671, type: 3}
+  bugle: {fileID: 8300000, guid: d933f3a4c27df1143aea6bd9c290880b, type: 3}

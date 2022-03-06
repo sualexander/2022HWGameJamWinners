@@ -116,7 +116,14 @@ MonoBehaviour:
   projectile: {fileID: 1719154636418170167, guid: 9e48ac3eaadb5f74ebc637700d6f1cae, type: 3}
   swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
   rangedAttackSounds: []
-  meleeAttackSounds: []
+  meleeAttackSounds:
+  - {fileID: 8300000, guid: 730d54d35ab0e364a897e40a066a2dd3, type: 3}
+  - {fileID: 8300000, guid: c23eb51053d54a344a2726f5da186e56, type: 3}
+  - {fileID: 8300000, guid: a5d1bbb544ebbce43951cef174686926, type: 3}
+  - {fileID: 8300000, guid: 73554a988b48bc2449d1df19821ecd1b, type: 3}
+  - {fileID: 8300000, guid: e2029b2c6e7c2c847afb7412dbd7cdba, type: 3}
+  - {fileID: 8300000, guid: 3ea6de899993e0f448c96c917159f769, type: 3}
+  meleeMiss: {fileID: 8300000, guid: f2493d2c222c75b42adda8142cb00143, type: 3}
 --- !u!114 &6698340541707091130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,13 +138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 0}
   dialog: []
-  money: {fileID: 0}
+  money: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
   speed: 5
   dmg: 1
   maxHealth: 5
   canKill: 1
   health: 0
   nextWaypointDistance: 0.5
+  coin: {fileID: 0}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -230,7 +238,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 937d78ee23b7c6d4f966236b8c12edbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 313593080bcc2724e8dc0eb9fcb86312, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -253,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc569d110af5b2740a1346c595e9a35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assets: {fileID: 11400000, guid: 0ffa3b869af4c524abcb3955d571a64b, type: 2}
+  assets: {fileID: 11400000, guid: 2b9ba1217c8411a4597ae1aa5dfaad1c, type: 2}
   direction: 0
   frame: 0
 --- !u!95 &6698340542686665588

@@ -238,6 +238,11 @@ MonoBehaviour:
   meleeAttackSounds:
   - {fileID: 8300000, guid: 730d54d35ab0e364a897e40a066a2dd3, type: 3}
   - {fileID: 8300000, guid: c23eb51053d54a344a2726f5da186e56, type: 3}
+  - {fileID: 8300000, guid: a5d1bbb544ebbce43951cef174686926, type: 3}
+  - {fileID: 8300000, guid: 73554a988b48bc2449d1df19821ecd1b, type: 3}
+  - {fileID: 8300000, guid: e2029b2c6e7c2c847afb7412dbd7cdba, type: 3}
+  - {fileID: 8300000, guid: 3ea6de899993e0f448c96c917159f769, type: 3}
+  meleeMiss: {fileID: 8300000, guid: f2493d2c222c75b42adda8142cb00143, type: 3}
 --- !u!114 &6085313122936734771
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -252,13 +257,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 0}
   dialog: []
-  money: {fileID: 0}
+  money: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
   speed: 4
   dmg: 1
   maxHealth: 5
   canKill: 1
   health: 0
   nextWaypointDistance: 0.5
+  coin: {fileID: 0}
 --- !u!70 &8281211830359920410
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

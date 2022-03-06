@@ -8,16 +8,25 @@ public class LawManager : MonoBehaviour
     public enum Law
     {
         THROW_MONEY,
-        NO_MOVEMENT,
+        DONT_STOP,
         NO_MELEE,
         NO_RANGED,
+        WALK_REVERSE,
+        FACE_REVERSE,
+        ZIGZAG,
+        COVER_EARS,
+        CLOSE_EYES
     };
-    static Law currentLaw = Law.NO_MOVEMENT;
+    static Law currentLaw = Law.NO_RANGED;
 
     public static LawManager instance;
     public GameObject meleeGuard;
+    public AudioClip bugle;
     bool hasSpawnedGuards = false;
     float timer = 0;
+
+    bool thrown = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -30,10 +39,6 @@ public class LawManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-
-    }
     // Update is called once per frame
     void Update()
     {
@@ -42,35 +47,65 @@ public class LawManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > 5f)
         {
+            if (currentLaw == Law.THROW_MONEY && !thrown)
+            {
+                Debug.Log("You broke the law...");
+                UIManager.instance.Alert();
+                Vector2 posToSpawn = GameObject.Find("Player").transform.position;
+
+                Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
+                Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
+                hasSpawnedGuards = true;
+            }
             timer = 0f;
-            Law newLaw = (Law)Random.Range(0, 4);
-            Debug.Log(newLaw);
+            Law newLaw = (Law)Random.Range(0, 9);
             StartCoroutine(ChangeLaw(newLaw));
             string law;
+            thrown = false;
             switch (newLaw)
             {
                 case Law.THROW_MONEY:
-                    law = "You shall throw your money";
+                    law = "Press [M] to throw your money!";
                     break;
-                case Law.NO_MOVEMENT:
-                    law = "You shall not move";
+                case Law.DONT_STOP:
+                    law = "You shall not stop moving!";
                     break;
                 case Law.NO_MELEE:
-                    law = "You shall not use melee weapons";
+                    law = "You shall not use melee weapons!";
                     break;
                 case Law.NO_RANGED:
-                    law = "You shall not use ranged weapons";
+                    law = "You shall not use ranged weapons!";
+                    break;
+                case Law.WALK_REVERSE:
+                    law = "You shall move in reverse!";
+                    break;
+                case Law.FACE_REVERSE:
+                    law = "You shall always look backwards!";
+                    break;
+                case Law.ZIGZAG:
+                    law = "You shall move in a zig zag.";
+                    break;
+                case Law.COVER_EARS:
+                    law = "You shall cover your ears";
+                    break;
+                case Law.CLOSE_EYES:
+                    law = "You shall close your eyes";
                     break;
                 default:
-                    law = "Anarchy";
+                    law = "Anarchy REIGNS!";
                     break;
             }
             UIManager.instance.PlayBugleSlide(law);
+            AudioManager.instance.PlayAudio(bugle);
             hasSpawnedGuards = false;
         }
     }
 
-    
+    public void Thrown()
+    {
+        thrown = true;
+    }
+
     public Law GetLaw()
     {
         return currentLaw;
@@ -89,8 +124,11 @@ public class LawManager : MonoBehaviour
         bool ret = true;
         switch (currentLaw)
         {
-            case Law.NO_MOVEMENT:
-                ret = !move.IsMoving();
+            case Law.DONT_STOP:
+                ret = move.IsMoving();
+                break;
+            case Law.ZIGZAG:
+                ret = move.IsZigZagging();
                 break;
             default:
                 break;
@@ -98,6 +136,7 @@ public class LawManager : MonoBehaviour
         if (!ret && !hasSpawnedGuards)
         {
             Debug.Log("You broke the law...");
+            UIManager.instance.Alert();
             Vector2 posToSpawn = plr.gameObject.transform.position;
             Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
             Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
@@ -124,7 +163,8 @@ public class LawManager : MonoBehaviour
         if (!ret)
         {
             Debug.Log("You broke the law...");
-            Vector2 posToSpawn = GameObject.Find("Player 1").transform.position;
+            UIManager.instance.Alert();
+            Vector2 posToSpawn = GameObject.Find("Player").transform.position;
 
             Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
             Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);

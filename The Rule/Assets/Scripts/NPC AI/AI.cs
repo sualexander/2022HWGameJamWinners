@@ -28,12 +28,15 @@ public class AI : NPC
     
     protected Attack atk;
 
+    public GameObject coin;
+
     // Start is called before the first frame update
     protected virtual void Start()
     {
         health = maxHealth;
         move = GetComponent<Movement>();
         atk = GetComponent<Attack>();
+        Debug.Log(atk);
         atk.SetMask(PhysicsHelper.GetLayerMask(new int[] { 6 }));
         move.SetSpeed(speed);
 
@@ -103,6 +106,8 @@ public class AI : NPC
         if (health <= 0 && canKill)
         {
             Debug.Log("DEAD!");
+            GameObject obj = Instantiate(coin, transform.position, transform.rotation);
+            obj.GetComponent<Money>().Value = 10;
             Destroy(gameObject);
         }
     }

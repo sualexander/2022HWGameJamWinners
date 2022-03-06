@@ -24,7 +24,7 @@ public class NPC : LawAbider
         LawManager.Law law = LawManager.instance.GetLaw();
         switch (law)
         {
-            case LawManager.Law.NO_MOVEMENT:
+            case LawManager.Law.DONT_STOP:
                 hasThrownMoney = false;
                 break;
             case LawManager.Law.NO_MELEE:
