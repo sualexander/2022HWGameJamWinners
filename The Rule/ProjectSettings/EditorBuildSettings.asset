@@ -14,4 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Jail.unity
     guid: 920f1cd9cbc9d3e4db60669af68ed220
+  - enabled: 1
+    path: Assets/Scenes/HubWorld.unity
+    guid: c351a51beda18f14983234657fa964c4
+  - enabled: 1
+    path: Assets/Scenes/Castle.unity
+    guid: 076afcaf0eaa32a4b9821c7950a472fb
   m_configObjects: {}

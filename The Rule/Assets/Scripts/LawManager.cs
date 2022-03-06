@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LawManager : MonoBehaviour
 {
+
     public enum Law
     {
         THROW_MONEY,
@@ -29,9 +30,15 @@ public class LawManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+
+    }
     // Update is called once per frame
     void Update()
     {
+        if (SceneManager.GetActiveScene().name == "Hub")
+            return;
         timer += Time.deltaTime;
         if (timer > 5f)
         {
@@ -99,7 +106,11 @@ public class LawManager : MonoBehaviour
         if (!ret)
         {
             Debug.Log("You broke the law...");
-            UIManager.instance.FadeOut();
+            Vector2 posToSpawn = GameObject.Find("Player 1").transform.position;
+
+            Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
+            Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
+            hasSpawnedGuards = true;
         }
         return ret;
     }

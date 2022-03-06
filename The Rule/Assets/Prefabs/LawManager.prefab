@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ab2605b6cfbc4240aad0e0d93895278, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  meleeGuard: {fileID: 6085313122936734780, guid: 43900a21ab011914eaef9d9cafeea671, type: 3}
