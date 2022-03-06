@@ -5,7 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class PlayerControl : LawAbider
 {
-    const float speed = 10f;
+    const float speed = 5f;
     Movement move;
     float timer = 0f;
     Attack atk;
