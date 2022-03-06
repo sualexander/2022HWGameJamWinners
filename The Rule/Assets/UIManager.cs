@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
     [SerializeField] Text dialogBox;
+    [SerializeField] GameObject panel;
     string toType = "";
     Animator anim;
 
@@ -20,6 +22,7 @@ public class UIManager : MonoBehaviour
         {
             instance = this;
         }
+        
     }
     void Start()
     {
@@ -47,5 +50,20 @@ public class UIManager : MonoBehaviour
             dialogBox.text += c;
             yield return new WaitForSeconds(.1f);
         }
+    }
+
+    public void FadeOut()
+    {
+        panel.GetComponent<Animator>().Play("FadeOut");
+    }
+
+    public void FadeIn()
+    {
+        panel.GetComponent<Animator>().Play("FadeIn");
+    }
+
+    public void StartOver()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
