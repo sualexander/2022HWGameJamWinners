@@ -50,16 +50,7 @@ public class PlayerControl : LawAbider
             atk.MeleeAttack(1f, direction);
         }
 
-        if (LawManager.instance.CheckLaw(this))
-        {
-            //Debug.Log("Following the law");
-        }
-
-        else
-        {
-            //Debug.Log("Breaking the law");
-            //UIManager.instance.FadeOut();
-        }
+        LawManager.instance.CheckLaw(this);
         // NPC interaction
         Debug.DrawRay(transform.position, maxDistanceFromNPC * direction);
         if (Input.GetKeyDown(KeyCode.Space))

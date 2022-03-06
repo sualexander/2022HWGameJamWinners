@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class LawManager : MonoBehaviour
 {
-    protected enum Law
+    public enum Law
     {
+        THROW_MONEY,
         NO_MOVEMENT,
         NO_MELEE,
         NO_RANGED,
@@ -33,38 +34,43 @@ public class LawManager : MonoBehaviour
         if (timer > 5f)
         {
             timer = 0f;
-            ChangeLaw();
-            Debug.Log(GetLaw());
+            Law newLaw = (Law)Random.Range(0, 4);
+            Debug.Log(newLaw);
+            UIManager.instance.PlayBugleSlide();
+            StartCoroutine(ChangeLaw(newLaw));
         }
     }
 
     
-    protected Law GetLaw()
+    public Law GetLaw()
     {
         return currentLaw;
     }
 
-    static void ChangeLaw()
+    private IEnumerator ChangeLaw(Law law)
     {
         // Change the second argument to Random to be the length of Law
-        currentLaw = (Law)Random.Range(0, 3);
+        yield return new WaitForSeconds(2);
+        currentLaw = law;
         UIManager.instance.PlayBugleSlide();
+        Debug.Log(GetLaw());
     }
 
     public bool CheckLaw(PlayerControl plr)
     {
         Movement move = plr.GetMovement();
         bool ret = true;
-        Law law = GetLaw();
-        switch (law)
+        switch (currentLaw)
         {
             case Law.NO_MOVEMENT:
-                return !move.IsMoving();
+                ret = !move.IsMoving();
+                break;
             default:
                 break;
         }
         if (!ret)
         {
+            Debug.Log("You broke the law...");
             UIManager.instance.FadeOut();
         }
         return ret;
@@ -74,7 +80,7 @@ public class LawManager : MonoBehaviour
     {
         bool ret = true;
         Law law = GetLaw();
-        switch (law)
+        switch (currentLaw)
         {
             case Law.NO_MELEE:
                 ret = a.action != Action.ActionType.MELEE;

@@ -9,7 +9,9 @@ public class NPC : LawAbider
     public Movement move;
     float fov = 90f;
     [SerializeField] string[] dialog;
+    [SerializeField] GameObject money;
     int currentDialog = 0;
+    bool hasThrownMoney = false;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,30 +21,30 @@ public class NPC : LawAbider
 
     void Update()
     {
-        Law law = GetLaw();
+        LawManager.Law law = LawManager.instance.GetLaw();
         switch (law)
         {
-            case Law.NO_MOVEMENT:
+            case LawManager.Law.NO_MOVEMENT:
+                hasThrownMoney = false;
                 break;
-            case Law.NO_MELEE:
+            case LawManager.Law.NO_MELEE:
+                hasThrownMoney = false;
+
                 break;
-            case Law.NO_RANGED:
+            case LawManager.Law.NO_RANGED:
+                hasThrownMoney = false;
+
+                break;
+            case LawManager.Law.THROW_MONEY:
+                if (!hasThrownMoney)
+                {
+                    Instantiate(money, new Vector3(transform.position.x, transform.position.y - 1, 0), Quaternion.identity);
+                    Debug.Log("Money thrown...");
+                    hasThrownMoney = true;
+                }
                 break;
             default:
                 break;
-        }
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            Vector2 direction = collision.transform.position - transform.position;
-            float angle = Vector2.Angle(direction, transform.forward);
-            if (angle < fov / 2)
-            {
-
-            }
         }
     }
 

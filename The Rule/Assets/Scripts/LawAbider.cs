@@ -4,14 +4,8 @@ using UnityEngine;
 
 public class LawAbider : MonoBehaviour
 {
-    protected enum Law
-    {
-        NO_MOVEMENT,
-        NO_MELEE,
-        NO_RANGED,
-    };
-    static Law currentLaw = Law.NO_MOVEMENT;
-    protected Law GetLaw()
+    static LawManager.Law currentLaw = LawManager.Law.NO_MOVEMENT;
+    protected LawManager.Law GetLaw()
     {
         return currentLaw;
     }
@@ -19,6 +13,6 @@ public class LawAbider : MonoBehaviour
     protected static void ChangeLaw()
     {
         // Change the max here to be the length of Law
-        currentLaw = (Law)Random.Range(0, 3);
+        currentLaw = (LawManager.Law)Random.Range(0, 3);
     }
 }
