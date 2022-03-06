@@ -78,6 +78,7 @@ public class PlayerControl : LawAbider
     public void CollectMoney(Money m)
     {
         money += m.Value;
+        if (UIManager.instance) UIManager.instance.SetGold(money);
     }
 
     void Damaged(int dmg)

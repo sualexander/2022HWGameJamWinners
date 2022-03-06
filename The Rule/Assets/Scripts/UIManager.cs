@@ -12,6 +12,7 @@ public class UIManager : MonoBehaviour
     Animator anim;
 
     Animator health;
+    Text coins;
     
     private void Awake()
     {
@@ -30,11 +31,17 @@ public class UIManager : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         health = transform.Find("HealthBar").GetComponent<Animator>();
+        coins = transform.Find("MoneyCount").GetComponent<Text>();
     }
 
     public void SetHealth(int health)
     {
         if (this.health != null) this.health.SetInteger("Health", health);
+    }
+
+    public void SetGold(int coins)
+    {
+        if (this.coins != null) this.coins.text = coins.ToString();
     }
 
     public void PlayBugleSlide()
