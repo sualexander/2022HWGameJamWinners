@@ -24,6 +24,7 @@ public class Attack : MonoBehaviour
             obj.GetComponent<Movement>().Knockback(direction, damage);
             obj.GetComponent<Movement>().TakeDamage((int)damage);
         }
+        LawManager.instance.CheckLaw(new Action(Action.ActionType.MELEE));
     }
 
     public void RangedAttack(float damage, Vector2 direction, float speed, float radius)
@@ -31,5 +32,6 @@ public class Attack : MonoBehaviour
         Vector3 position = transform.position + new Vector3((direction * radius).x, (direction*radius).y, 0f);
         GameObject obj = Instantiate(projectile, position, Quaternion.identity);
         obj.GetComponent<Projectile>().Setup(damage, direction, speed, mask);
+        LawManager.instance.CheckLaw(new Action(Action.ActionType.RANGED));
     }
 }

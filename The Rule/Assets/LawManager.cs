@@ -63,6 +63,10 @@ public class LawManager : MonoBehaviour
             default:
                 break;
         }
+        if (!ret)
+        {
+            UIManager.instance.FadeOut();
+        }
         return ret;
     }
 
@@ -80,6 +84,11 @@ public class LawManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+        if (!ret)
+        {
+            Debug.Log("You broke the law...");
+            UIManager.instance.FadeOut();
         }
         return ret;
     }
