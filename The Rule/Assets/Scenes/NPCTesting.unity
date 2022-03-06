@@ -274,7 +274,7 @@ MonoBehaviour:
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
-    m_VerticalOverflow: 0
+    m_VerticalOverflow: 1
     m_LineSpacing: 1
   m_Text: Dialogue Here
 --- !u!222 &281587529
@@ -381,6 +381,7 @@ MonoBehaviour:
   - I really like eating meat.
   - Like a lot...
   - Like... too much...
+  - This is the last dialog!!!
 --- !u!58 &420465438
 CircleCollider2D:
   m_ObjectHideFlags: 0
