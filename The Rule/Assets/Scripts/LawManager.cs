@@ -34,8 +34,10 @@ public class LawManager : MonoBehaviour
         if (timer > 5f)
         {
             timer = 0f;
-            ChangeLaw();
-            Debug.Log(GetLaw());
+            Law newLaw = (Law)Random.Range(0, 4);
+            Debug.Log(newLaw);
+            UIManager.instance.PlayBugleSlide();
+            StartCoroutine(ChangeLaw(newLaw));
         }
     }
 
@@ -45,11 +47,13 @@ public class LawManager : MonoBehaviour
         return currentLaw;
     }
 
-    static void ChangeLaw()
+    private IEnumerator ChangeLaw(Law law)
     {
         // Change the second argument to Random to be the length of Law
-        currentLaw = (Law)Random.Range(0, 4);
+        yield return new WaitForSeconds(2);
+        currentLaw = law;
         UIManager.instance.PlayBugleSlide();
+        Debug.Log(GetLaw());
     }
 
     public bool CheckLaw(PlayerControl plr)

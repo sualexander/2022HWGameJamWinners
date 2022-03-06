@@ -483,10 +483,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 4371889354676454038, guid: 5a268b56e19e48140bdfe5a09e11484a, type: 3}
-      propertyPath: money
-      value: 
-      objectReference: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
     - target: {fileID: 4371889354676454039, guid: 5a268b56e19e48140bdfe5a09e11484a, type: 3}
       propertyPath: m_Name
       value: NPC
