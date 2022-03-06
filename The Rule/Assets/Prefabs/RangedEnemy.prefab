@@ -236,6 +236,7 @@ MonoBehaviour:
   rangedAttackSounds:
   - {fileID: 8300000, guid: 406816dd272d31849a37cf35dcced23f, type: 3}
   meleeAttackSounds: []
+  meleeMiss: {fileID: 0}
 --- !u!114 &5407980716214271759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,6 +258,7 @@ MonoBehaviour:
   canKill: 1
   health: 0
   nextWaypointDistance: 0.5
+  coin: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
 --- !u!70 &373213588
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

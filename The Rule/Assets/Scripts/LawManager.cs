@@ -24,6 +24,9 @@ public class LawManager : MonoBehaviour
     public AudioClip bugle;
     bool hasSpawnedGuards = false;
     float timer = 0;
+
+    bool thrown = false;
+
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -36,10 +39,6 @@ public class LawManager : MonoBehaviour
         }
     }
 
-    private void Start()
-    {
-
-    }
     // Update is called once per frame
     void Update()
     {
@@ -48,16 +47,25 @@ public class LawManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > 5f)
         {
+            if (currentLaw == Law.THROW_MONEY && !thrown)
+            {
+                Debug.Log("You broke the law...");
+                UIManager.instance.Alert();
+                Vector2 posToSpawn = GameObject.Find("Player").transform.position;
+
+                Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
+                Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
+                hasSpawnedGuards = true;
+            }
             timer = 0f;
             Law newLaw = (Law)Random.Range(0, 9);
-            newLaw = Law.CLOSE_EYES;
-            Debug.Log(newLaw);
             StartCoroutine(ChangeLaw(newLaw));
             string law;
+            thrown = false;
             switch (newLaw)
             {
                 case Law.THROW_MONEY:
-                    law = "You shall throw your money!";
+                    law = "Press [M] to throw your money!";
                     break;
                 case Law.DONT_STOP:
                     law = "You shall not stop moving!";
@@ -93,7 +101,11 @@ public class LawManager : MonoBehaviour
         }
     }
 
-    
+    public void Thrown()
+    {
+        thrown = true;
+    }
+
     public Law GetLaw()
     {
         return currentLaw;
@@ -116,7 +128,7 @@ public class LawManager : MonoBehaviour
                 ret = move.IsMoving();
                 break;
             case Law.ZIGZAG:
-                return move.IsZigZagging();
+                ret = move.IsZigZagging();
                 break;
             default:
                 break;
@@ -141,10 +153,8 @@ public class LawManager : MonoBehaviour
         {
             case Law.NO_MELEE:
                 ret = a.action != Action.ActionType.MELEE;
-                Debug.Log("HI");
                 break;
             case Law.NO_RANGED:
-                Debug.Log("HI");
                 ret = a.action != Action.ActionType.RANGED;
                 break;
             default:
