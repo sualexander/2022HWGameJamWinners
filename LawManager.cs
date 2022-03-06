@@ -66,6 +66,7 @@ public class LawManager : MonoBehaviour
                     break;
             }
             UIManager.instance.PlayBugleSlide(law);
+            Debug.Log("T");
             hasSpawnedGuards = false;
         }
     }
@@ -121,7 +122,7 @@ public class LawManager : MonoBehaviour
             default:
                 break;
         }
-        if (!ret)
+        if (!ret && !hasSpawnedGuards)
         {
             Debug.Log("You broke the law...");
             Vector2 posToSpawn = GameObject.Find("Player 1").transform.position;
