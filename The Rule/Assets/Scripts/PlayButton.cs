@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class PlayButton : MonoBehaviour
 {
-
+    public string scene = "MovementTesting";
     bool started = false;
 
     public void Update()
     {
-        if (started)
+        if (started && transform.childCount > 1)
         {
             Color col = GetComponentInChildren<SpriteRenderer>().color;
             GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, col.a + Time.deltaTime * 0.5f);
@@ -24,11 +24,15 @@ public class PlayButton : MonoBehaviour
         GetComponent<Button>().interactable = false;
         started = true;
         Invoke("StartGame", 2.1f);
+        if (UIManager.instance != null)
+        {
+            UIManager.instance.FadeOut();
+        }
     }
 
     public void StartGame()
     {
-        StartCoroutine(LoadScene("MovementTesting"));
+        StartCoroutine(LoadScene(scene));
     }
 
     IEnumerator LoadScene(string scene)
