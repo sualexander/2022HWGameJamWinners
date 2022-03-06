@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
@@ -59,5 +60,10 @@ public class UIManager : MonoBehaviour
     public void FadeIn()
     {
         panel.GetComponent<Animator>().Play("FadeIn");
+    }
+
+    public void StartOver()
+    {
+        SceneManager.LoadScene("SampleScene");
     }
 }
