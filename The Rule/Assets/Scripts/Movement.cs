@@ -9,7 +9,7 @@ public class Damage : UnityEvent<int>
 }
 
 [RequireComponent(typeof(Rigidbody2D))]
-[RequireComponent(typeof(CircleCollider2D))]
+[RequireComponent(typeof(Collider2D))]
 public class Movement : MonoBehaviour
 {
     float speed;
