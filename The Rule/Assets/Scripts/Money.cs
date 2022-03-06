@@ -6,6 +6,8 @@ public class Money : MonoBehaviour
 {
     [SerializeField] private int value;
 
+    public Sprite[] sprites;
+
     public int Value
     {
         get
@@ -15,6 +17,17 @@ public class Money : MonoBehaviour
         set
         {
             this.value = value;
+            SpriteRenderer sr = GetComponent<SpriteRenderer>();
+            if (value <= 10)
+            {
+                sr.sprite = sprites[0];
+            } else if (value <= 20)
+            {
+                sr.sprite = sprites[1];
+            } else
+            {
+                sr.sprite = sprites[2];
+            }
         }
     }
     
