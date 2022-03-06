@@ -7,10 +7,13 @@ public class NPC : LawAbider
 {
     public Movement move;
     float fov = 90f;
+    [SerializeField] string[] dialog;
+    int currentDialog = 0;
     // Start is called before the first frame update
     void Start()
     {
         move = GetComponent<Movement>();
+        move.SetFixedPosition(true);
     }
 
     // Update is called once per frame
@@ -40,6 +43,17 @@ public class NPC : LawAbider
             {
 
             }
+        }
+    }
+
+    public void Speak()
+    {
+        Debug.Log(dialog[currentDialog]);
+        UIManager.instance.SetDialog(dialog[currentDialog]);
+        currentDialog++;
+        if (currentDialog > dialog.Length - 1)
+        {
+            currentDialog = 0;
         }
     }
 }

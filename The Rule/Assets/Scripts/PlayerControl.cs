@@ -8,24 +8,28 @@ public class PlayerControl : LawAbider
     const float speed = 30f;
     Movement move;
     float timer = 0f;
+    Attack atk;
+    int atkMask;
+    [SerializeField] float maxDistanceFromNPC = 20f;
     void Start()
     {
         move = GetComponent<Movement>();
         move.SetSpeed(speed);
-
+        atk = GetComponent<Attack>();
         atkMask = PhysicsHelper.GetLayerMask(new int[] { 7 });
         atk.SetMask(atkMask);
     }
 
     void Update()
     {
+        Vector2 pos = transform.position;
         Vector2 movement = Vector2.zero;
         movement.x = Input.GetAxisRaw("Horizontal");
         movement.y = Input.GetAxisRaw("Vertical");
         move.SetMovement(movement);
 
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        direction = (mousePos - pos).normalized;
+        Vector2 direction = (mousePos - pos).normalized;
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -42,6 +46,19 @@ public class PlayerControl : LawAbider
         else
         {
             //Debug.Log("Breaking the law");
+        }
+
+        // NPC interaction
+        Debug.DrawRay(transform.position, maxDistanceFromNPC * direction);
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            RaycastHit2D hit;
+            hit = Physics2D.Raycast(transform.position, direction, maxDistanceFromNPC,
+                LayerMask.GetMask("NPC"));
+            if (hit.collider != null)
+            {
+                hit.collider.gameObject.GetComponent<NPC>().Speak();
+            }
         }
     }
 
