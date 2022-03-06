@@ -5,6 +5,7 @@ using UnityEngine;
 [RequireComponent(typeof(Movement))]
 public class NPC : LawAbider
 {
+    [HideInInspector]
     public Movement move;
     float fov = 90f;
     [SerializeField] string[] dialog;
@@ -16,7 +17,6 @@ public class NPC : LawAbider
         move.SetFixedPosition(true);
     }
 
-    // Update is called once per frame
     void Update()
     {
         Law law = GetLaw();

@@ -46,7 +46,7 @@ public class LawManager : MonoBehaviour
 
     static void ChangeLaw()
     {
-        // Change the max here to be the length of Law
+        // Change the second argument to Random to be the length of Law
         currentLaw = (Law)Random.Range(0, 3);
         UIManager.instance.PlayBugleSlide();
     }
@@ -62,6 +62,10 @@ public class LawManager : MonoBehaviour
                 return !move.IsMoving();
             default:
                 break;
+        }
+        if (!ret)
+        {
+            UIManager.instance.FadeOut();
         }
         return ret;
     }
@@ -80,6 +84,11 @@ public class LawManager : MonoBehaviour
                 break;
             default:
                 break;
+        }
+        if (!ret)
+        {
+            Debug.Log("You broke the law...");
+            UIManager.instance.FadeOut();
         }
         return ret;
     }

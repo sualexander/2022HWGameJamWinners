@@ -11,8 +11,8 @@ public class Action : MonoBehaviour
         RANGED
     }
     public ActionType action;
-    public Action()
+    public Action(ActionType at)
     {
-        
+        action = at;
     }
 }
