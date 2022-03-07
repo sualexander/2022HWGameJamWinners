@@ -17,4 +17,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Castle.unity
     guid: 076afcaf0eaa32a4b9821c7950a472fb
+  - enabled: 1
+    path: Assets/Scenes/Tavern.unity
+    guid: ddb8fb57f2674854dba87874d50bd838
+  - enabled: 1
+    path: Assets/Scenes/FinalHubWorld.unity
+    guid: 1c7f55d5cf32f3043825efcdd7f27be2
+  - enabled: 1
+    path: Assets/Scenes/TavernBasement.unity
+    guid: be1ddb6acab9c474f8d9abffa68e8ce1
+  - enabled: 1
+    path: Assets/Scenes/TavernBasement1.unity
+    guid: f054f3648b139e347b10469870b573d0
   m_configObjects: {}

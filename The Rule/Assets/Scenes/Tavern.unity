@@ -140,7 +140,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 236247095871920487, guid: 7ca550599b42def439a165903540715d, type: 3}
       propertyPath: sceneToLoad
-      value: TavernBasement
+      value: TavernBasement1
       objectReference: {fileID: 0}
     - target: {fileID: 4303739654274202085, guid: 7ca550599b42def439a165903540715d, type: 3}
       propertyPath: m_Name

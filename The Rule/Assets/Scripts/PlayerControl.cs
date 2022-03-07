@@ -19,7 +19,7 @@ public class PlayerControl : LawAbider
     SpriteRenderer blindness;
 
     [SerializeField] float maxDistanceFromNPC = 20f;
-
+    int keys = 0;
     void Start()
     {
         move = GetComponent<Movement>();

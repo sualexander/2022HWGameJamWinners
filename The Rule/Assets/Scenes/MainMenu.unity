@@ -2380,7 +2380,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Soloman Maik - Sprites
+  m_text: Solomon Baik - Sprites
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2c9f453991388534e98186f99c345537, type: 2}
   m_sharedMaterial: {fileID: 5532923490438866790, guid: 2c9f453991388534e98186f99c345537, type: 2}
