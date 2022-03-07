@@ -162,7 +162,7 @@ public class LawManager : MonoBehaviour
             default:
                 break;
         }
-        if (!ret)
+        if (!ret && !hasSpawnedGuards)
         {
             Debug.Log("You broke the law...");
             AudioManager.instance.PlayAudio(whistle);
