@@ -13,8 +13,9 @@ public class PlayButton : MonoBehaviour
     {
         if (started && transform.childCount > 1)
         {
-            Color col = GetComponentInChildren<SpriteRenderer>().color;
-            GetComponentInChildren<SpriteRenderer>().color = new Color(col.r, col.g, col.b, col.a + Time.deltaTime * 0.5f);
+            SpriteRenderer sr = transform.GetChild(0).GetComponentInChildren<SpriteRenderer>();
+            Color col = sr.color;
+            sr.color = new Color(col.r, col.g, col.b, col.a + Time.deltaTime * 0.5f);
         }
     }
 
