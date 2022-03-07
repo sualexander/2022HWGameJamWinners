@@ -5,7 +5,6 @@ using UnityEngine;
 public class Key : MonoBehaviour
 {
 
-    [SerializeField] Door door;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,7 +22,7 @@ public class Key : MonoBehaviour
         Debug.Log("Key collided!");
         if (collision.gameObject.CompareTag("Player"))
         {
-            door.Open();
+            AudioManager.instance.PickUpKey();
             Destroy(this.gameObject);
         }
     }

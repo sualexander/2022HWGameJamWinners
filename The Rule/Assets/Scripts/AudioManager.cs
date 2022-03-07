@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class AudioManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public static AudioManager instance;
+    public int keys = 0;
     void Start()
     {
         if (instance != null && instance != this)
@@ -35,5 +36,16 @@ public class AudioManager : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Destroy(audioSource);
+    }
+
+    public void PickUpKey()
+    {
+        keys += 1;
+        if (keys >= 3)
+        {
+            SceneManager.LoadScene("FinalHubWorld");
+        }
+        else
+            SceneManager.LoadScene("HubWorld");
     }
 }
