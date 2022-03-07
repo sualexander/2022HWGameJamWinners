@@ -24,6 +24,7 @@ public class LawManager : MonoBehaviour
     public AudioClip bugle;
     bool hasSpawnedGuards = false;
     float timer = 0;
+    bool thrown = false;
     private void Awake()
     {
         if (instance != null && instance != this)
@@ -48,11 +49,22 @@ public class LawManager : MonoBehaviour
         timer += Time.deltaTime;
         if (timer > 10f)
         {
+            if (!thrown && currentLaw == Law.THROW_MONEY)
+            {
+                Debug.Log("You broke the law...");
+                UIManager.instance.Alert();
+                Vector2 posToSpawn = GameObject.Find("Player").transform.position;
+
+                Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
+                Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
+                hasSpawnedGuards = true;
+            }
             timer = 0f;
             Law newLaw = (Law)Random.Range(0, 9);
             newLaw = Law.CLOSE_EYES;
             Debug.Log(newLaw);
             StartCoroutine(ChangeLaw(newLaw));
+            thrown = false;
             string law;
             switch (newLaw)
             {
@@ -161,5 +173,10 @@ public class LawManager : MonoBehaviour
             hasSpawnedGuards = true;
         }
         return ret;
+    }
+
+    public void Thrown()
+    {
+        thrown = true;
     }
 }
