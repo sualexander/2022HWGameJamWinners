@@ -725,6 +725,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8736475340365847964, guid: 78a288ad7973ea747b7b2172443b07a1, type: 3}
+      propertyPath: showNavGraphs
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8736475340365847964, guid: 78a288ad7973ea747b7b2172443b07a1, type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAACAn+s/9woWcwIAACoFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtVMty2jAU/RVG64axXQdCd61DSBdJmNJONt5c5GusQZY8egRIhn+vJNvYoV1xOec+zn3IH4QJ3SA1Uq0UK55kgeTbhHibfJkM5CMeYSfFhr1j7/PKClN5Jwg+v8Aw6fDYh2lZo1GMfhc77p0jB1rBSqnqZbHDTGqjHVwC1+goJY2PFg76mJCj+7lZ+JCTs5K5t96dtYgmZ2dSFAbV4No7RtMoiaIoTubzr11EG2AF5VA3WHj1Q1xyl04Xsy44TuNpmgZ34frrPKPpbeIrSs6Z7vQRc2pC/xk02rrunEPBwPUbRMXTOz+BCtmuMr7KOP6lLDWaTrOC0z1TbnJtYvJDtuOsQe9blW/ArS+V3M6Csjbp0z/8TRzoUsn6sa8bR76GqRjd/4ITBW1G8x7D9yPtYVgH4HvYcnytUDzLlZJWFI40yvpQqzG5H/5eWssqpPsBb6Vegbb5z9a6VfkezqH7Y8ZZvQ3TT1tgw2UYebgJVG4/P53gcDG6S+FQr+KPxt+wG59WRzwwpY2jui6Fl7eVVnlXsgwz891Yk0klMMCd6AYFcHNauzTmeoVX3KjsFfMA/hF1xTuufxtXIQEe/KPoilrLw2VZupKHJ9TVizWcCRxEe+LZzSmTQrQXpj+TPmpjVQl0FLWzrPh8WQQgiuPbkm4xhnlJ4QYoxLN0MZ/RBY1TvCPh9JhwbQJftzq76biliSG5cGfWf1omKwVNOPZCwWHF3ms50sdEKTdUIYqXNkM/IY3KFXFPs1gWzM1ng8YwEdZNPnLCJd1jkV8S5aHT5dEoyIcsOWnYmzQeyUkWviU58fDllNcK3xgefPE+2Zmc/wJQSwMEFAAACAgAAICf6znUwNVtAAAAeAAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSMzTXUVBKL0osyCgGihiCOKWZKSB2tFJiooGhoWlaclKqYaJ5WnKibmJyoqGZiaW5WbJlsqFJqoVSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nntRZoo7yGil2FoAUEsBAi0AFAAACAgAAICf6z/3ChZzAgAAKgUAAAsAJAAAAAAAAAAAAAAAAAAAAGdyYXBoMC5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsBAi0AFAAACAgAAICf6znUwNVtAAAAeAAAAAkAJAAAAAAAAAAAAAAAwAIAAG1ldGEuanNvbgoAIAAAAAAAAQAYAACAPtXesZ0BAIA+1d6xnQEAgD7V3rGdAVBLBQYAAAAAAgACALgAAAB4AwAAAAA=
+      objectReference: {fileID: 0}
     - target: {fileID: 8736475340365847965, guid: 78a288ad7973ea747b7b2172443b07a1, type: 3}
       propertyPath: m_Name
       value: A_ Pathfinding
@@ -1168,6 +1176,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LawManager
       objectReference: {fileID: 0}
+    - target: {fileID: 6894148932452495986, guid: ab98f44a67468114aaab9957283a65f4, type: 3}
+      propertyPath: whistle
+      value: 
+      objectReference: {fileID: 8300000, guid: 5bf103edd5c0e4471825f5dd5a4ef8e9, type: 3}
     - target: {fileID: 6894148932452495987, guid: ab98f44a67468114aaab9957283a65f4, type: 3}
       propertyPath: m_RootOrder
       value: 4

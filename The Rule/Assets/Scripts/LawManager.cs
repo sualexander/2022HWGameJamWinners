@@ -21,7 +21,7 @@ public class LawManager : MonoBehaviour
 
     public static LawManager instance;
     public GameObject meleeGuard;
-    public AudioClip bugle;
+    public AudioClip whistle;
     bool hasSpawnedGuards = false;
     float timer = 0;
     bool thrown = false;
@@ -52,6 +52,7 @@ public class LawManager : MonoBehaviour
             if (!thrown && currentLaw == Law.THROW_MONEY)
             {
                 Debug.Log("You broke the law...");
+                AudioManager.instance.PlayAudio(whistle);
                 UIManager.instance.Alert();
                 Vector2 posToSpawn = GameObject.Find("Player").transform.position;
 
@@ -61,7 +62,6 @@ public class LawManager : MonoBehaviour
             }
             timer = 0f;
             Law newLaw = (Law)Random.Range(0, 9);
-            newLaw = Law.CLOSE_EYES;
             Debug.Log(newLaw);
             StartCoroutine(ChangeLaw(newLaw));
             thrown = false;
@@ -100,7 +100,6 @@ public class LawManager : MonoBehaviour
                     break;
             }
             UIManager.instance.PlayBugleSlide(law);
-            //AudioManager.instance.PlayAudio(bugle);
             hasSpawnedGuards = false;
         }
     }
@@ -128,7 +127,7 @@ public class LawManager : MonoBehaviour
                 ret = move.IsMoving();
                 break;
             case Law.ZIGZAG:
-                return move.IsZigZagging();
+                ret =  move.IsZigZagging();
                 break;
             default:
                 break;
@@ -136,6 +135,7 @@ public class LawManager : MonoBehaviour
         if (!ret && !hasSpawnedGuards)
         {
             Debug.Log("You broke the law...");
+            AudioManager.instance.PlayAudio(whistle);
             UIManager.instance.Alert();
             Vector2 posToSpawn = plr.gameObject.transform.position;
             Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
@@ -165,9 +165,9 @@ public class LawManager : MonoBehaviour
         if (!ret)
         {
             Debug.Log("You broke the law...");
+            AudioManager.instance.PlayAudio(whistle);
             UIManager.instance.Alert();
             Vector2 posToSpawn = GameObject.Find("Player").transform.position;
-
             Instantiate(meleeGuard, new Vector3(posToSpawn.x - 10, posToSpawn.y, 0), Quaternion.identity);
             Instantiate(meleeGuard, new Vector3(posToSpawn.x + 10, posToSpawn.y, 0), Quaternion.identity);
             hasSpawnedGuards = true;
