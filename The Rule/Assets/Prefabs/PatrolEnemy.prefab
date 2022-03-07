@@ -138,13 +138,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   move: {fileID: 0}
   dialog: []
-  money: {fileID: 0}
+  money: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
   speed: 5
   dmg: 1
   maxHealth: 5
   canKill: 1
   health: 0
   nextWaypointDistance: 0.5
+  coin: {fileID: 0}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
@@ -237,7 +238,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: 937d78ee23b7c6d4f966236b8c12edbb, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 313593080bcc2724e8dc0eb9fcb86312, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -260,7 +261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc569d110af5b2740a1346c595e9a35e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  assets: {fileID: 11400000, guid: 0ffa3b869af4c524abcb3955d571a64b, type: 2}
+  assets: {fileID: 11400000, guid: 2b9ba1217c8411a4597ae1aa5dfaad1c, type: 2}
   direction: 0
   frame: 0
 --- !u!95 &6698340542686665588

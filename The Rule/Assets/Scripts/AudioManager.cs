@@ -18,12 +18,6 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void PlayAudio(AudioClip ac)
     {
         StartCoroutine(playAudioCoroutine(ac));
@@ -33,6 +27,8 @@ public class AudioManager : MonoBehaviour
     {
         AudioSource audioSource = gameObject.AddComponent<AudioSource>();
         audioSource.clip = ac;
+        Debug.Log(LawManager.instance && LawManager.instance.GetLaw() == LawManager.Law.COVER_EARS);
+        if (LawManager.instance && LawManager.instance.GetLaw() == LawManager.Law.COVER_EARS) audioSource.volume = 0.005f;
         audioSource.Play();
         while (audioSource.isPlaying)
         {

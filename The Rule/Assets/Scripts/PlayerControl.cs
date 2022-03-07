@@ -32,6 +32,7 @@ public class PlayerControl : LawAbider
         health = maxHealth;
         move.takeDamage.AddListener(Damaged);
         if (UIManager.instance != null) UIManager.instance.SetHealth(health);
+        if (UIManager.instance != null) UIManager.instance.SetGold(money);
         blindness = transform.Find("Blindness").GetComponent<SpriteRenderer>();
     }
 
@@ -66,6 +67,13 @@ public class PlayerControl : LawAbider
             LawManager.instance.CheckLaw(new Action(Action.ActionType.MELEE));
         }
 
+        if(Input.GetKeyDown("m"))
+        {
+            LawManager.instance.Thrown();
+            money = 0;
+            if (UIManager.instance) UIManager.instance.SetGold(money);
+        }
+
         LawManager.instance.CheckLaw(this);
         // NPC interaction
         Debug.DrawRay(transform.position, maxDistanceFromNPC * direction);
@@ -93,7 +101,12 @@ public class PlayerControl : LawAbider
     // Called by collectables when the player enters their trigger.
     public void CollectMoney(Money m)
     {
-        money += m.Value;
+        int value = m.Value;
+        money += value;
+        health += value / 10;
+        if (health > 4) health = 4;
+        Debug.Log(health);
+        if (UIManager.instance) UIManager.instance.SetHealth(health);
         if (UIManager.instance) UIManager.instance.SetGold(money);
     }
 
