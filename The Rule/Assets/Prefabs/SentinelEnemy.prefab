@@ -265,15 +265,15 @@ MonoBehaviour:
   health: 0
   nextWaypointDistance: 0.5
   deathSounds:
-  - {fileID: 8300000, guid: 6b259d753ae679b488fc2b0a28810e72, type: 3}
-  - {fileID: 8300000, guid: 93bd9023afd47b84fbbd031bbd6f3cf5, type: 3}
-  - {fileID: 8300000, guid: 4dba887b33e5c68488d627b237ebce6a, type: 3}
-  - {fileID: 8300000, guid: 31e2f35e23e62a7479dda252dbc22bb9, type: 3}
-  - {fileID: 8300000, guid: afe685ab5a1d28a47aaa17d54a0df213, type: 3}
-  - {fileID: 8300000, guid: 825a1296c95e0a2499b3b82540e218c8, type: 3}
-  - {fileID: 8300000, guid: 5252785dc253132409fb13d307139c61, type: 3}
-  - {fileID: 8300000, guid: 8b8e9fda54650684d990b86664fb6fda, type: 3}
-  coin: {fileID: 0}
+  - {fileID: 8300000, guid: 2a981d5875b814668b07c26c0949d51f, type: 3}
+  - {fileID: 8300000, guid: b80747dcaca1e433182b88b05e3f9128, type: 3}
+  - {fileID: 8300000, guid: 48936a91737ef4d199c0a760bd2c81bc, type: 3}
+  - {fileID: 8300000, guid: 55847792a761646afa6e8eda966d2b6c, type: 3}
+  - {fileID: 8300000, guid: d78e3344421384f6882cb3230e53c792, type: 3}
+  - {fileID: 8300000, guid: d813b3da5cc1e480c86c43daff1d7e8f, type: 3}
+  - {fileID: 8300000, guid: 064ce90711d84414bafd5d513e4c99c3, type: 3}
+  - {fileID: 8300000, guid: 266135781335546fbaccb13fdd92c4aa, type: 3}
+  coin: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
 --- !u!70 &8281211830359920410
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
