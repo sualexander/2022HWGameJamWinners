@@ -88,7 +88,7 @@ public class LawManager : MonoBehaviour
                     break;
             }
             UIManager.instance.PlayBugleSlide(law);
-            AudioManager.instance.PlayAudio(bugle);
+            //AudioManager.instance.PlayAudio(bugle);
             hasSpawnedGuards = false;
         }
     }
