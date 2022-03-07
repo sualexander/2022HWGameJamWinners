@@ -57,31 +57,31 @@ public class LawManager : MonoBehaviour
             switch (newLaw)
             {
                 case Law.THROW_MONEY:
-                    law = "You shall throw your money!";
+                    law = "Fling your worldly goods to the ground! (Press [M])";
                     break;
                 case Law.DONT_STOP:
-                    law = "You shall not stop moving!";
+                    law = "Dance for me!";
                     break;
                 case Law.NO_MELEE:
-                    law = "You shall not use melee weapons!";
+                    law = "Shun the blade!";
                     break;
                 case Law.NO_RANGED:
-                    law = "You shall not use ranged weapons!";
+                    law = "Shun the bow!";
                     break;
                 case Law.WALK_REVERSE:
-                    law = "You shall move in reverse!";
+                    law = "Walk backwards!";
                     break;
                 case Law.FACE_REVERSE:
-                    law = "You shall always look backwards!";
+                    law = "Never meet your enemy's gaze!";
                     break;
                 case Law.ZIGZAG:
-                    law = "You shall move in a zig zag.";
+                    law = "Shun the straight path!";
                     break;
                 case Law.COVER_EARS:
-                    law = "You shall cover your ears";
+                    law = "Cover your ears!";
                     break;
                 case Law.CLOSE_EYES:
-                    law = "You shall close your eyes";
+                    law = "Shield your gaze!";
                     break;
                 default:
                     law = "Anarchy REIGNS!";
