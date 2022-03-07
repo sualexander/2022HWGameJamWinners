@@ -235,7 +235,15 @@ MonoBehaviour:
   swipe: {fileID: 1918376082348065652, guid: ec2114936332fd244b222b67a810ad87, type: 3}
   rangedAttackSounds:
   - {fileID: 8300000, guid: 406816dd272d31849a37cf35dcced23f, type: 3}
-  meleeAttackSounds: []
+  meleeAttackSounds:
+  - {fileID: 8300000, guid: 6b259d753ae679b488fc2b0a28810e72, type: 3}
+  - {fileID: 8300000, guid: 93bd9023afd47b84fbbd031bbd6f3cf5, type: 3}
+  - {fileID: 8300000, guid: 4dba887b33e5c68488d627b237ebce6a, type: 3}
+  - {fileID: 8300000, guid: 31e2f35e23e62a7479dda252dbc22bb9, type: 3}
+  - {fileID: 8300000, guid: afe685ab5a1d28a47aaa17d54a0df213, type: 3}
+  - {fileID: 8300000, guid: 825a1296c95e0a2499b3b82540e218c8, type: 3}
+  - {fileID: 8300000, guid: 5252785dc253132409fb13d307139c61, type: 3}
+  - {fileID: 8300000, guid: 8b8e9fda54650684d990b86664fb6fda, type: 3}
   meleeMiss: {fileID: 0}
 --- !u!114 &5407980716214271759
 MonoBehaviour:
@@ -258,6 +266,7 @@ MonoBehaviour:
   canKill: 1
   health: 0
   nextWaypointDistance: 0.5
+  deathSounds: []
   coin: {fileID: 5978385279721948252, guid: 699c6eec7ed7cd145a96edb2c38b6f1f, type: 3}
 --- !u!70 &373213588
 CapsuleCollider2D:

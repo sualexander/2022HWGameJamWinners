@@ -35,7 +35,10 @@ public class UIManager : MonoBehaviour
         anim = GetComponent<Animator>();
         health = transform.Find("HealthBar").GetComponent<Animator>();
         coins = transform.Find("MoneyCount").GetComponent<Text>();
-        alert = transform.Find("Alert").GetComponent<Animator>();
+        if (transform.Find("Alert"))
+        {
+            alert = transform.Find("Alert").GetComponent<Animator>();
+        }
         if (transform.Find("LAWTEXT"))
         {
             text = transform.Find("LAWTEXT").GetComponent<TextMeshProUGUI>();

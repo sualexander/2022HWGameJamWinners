@@ -45,7 +45,7 @@ public class LawManager : MonoBehaviour
         if (SceneManager.GetActiveScene().name == "Hub")
             return;
         timer += Time.deltaTime;
-        if (timer > 5f)
+        if (timer > 10f)
         {
             if (currentLaw == Law.THROW_MONEY && !thrown)
             {

@@ -24,6 +24,8 @@ public class AI : NPC
     protected int currentWaypoint;
     protected bool reachedEndOfPath = false;
 
+    public AudioClip[] deathSounds;
+
     Seeker seeker;
     
     protected Attack atk;
@@ -106,6 +108,7 @@ public class AI : NPC
         if (health <= 0 && canKill)
         {
             Debug.Log("DEAD!");
+            AudioManager.instance.PlayAudio(deathSounds[Random.Range(0, deathSounds.Length)]);
             GameObject obj = Instantiate(coin, transform.position, transform.rotation);
             obj.GetComponent<Money>().Value = 10;
             Destroy(gameObject);
